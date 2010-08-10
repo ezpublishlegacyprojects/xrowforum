@@ -10,7 +10,7 @@ User=4
 
 [IDs]
 #the objectID of your forumindex object (required for statistic in admin interface)
-ForumIndexObject=
+ForumIndexPageNodeID=
 #the objectID of your moderator usergroup
 ModeratorGroupObjectID=
 

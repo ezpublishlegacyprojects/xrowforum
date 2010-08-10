@@ -3,7 +3,7 @@
 </style>
 
 {def $timestamp=currentdate()
-     $forum_id = ezini('IDs','ForumIndexObject', 'xrowforum.ini')
+     $forum_id = ezini('IDs','ForumIndexPageNodeID', 'xrowforum.ini')
      $url_var = ''
      $online_user = fetch( 'user', 'logged_in_users', hash( 'sort_by', array( array( 'login', true() ) ) ) )
      $forum_days_running_ts =  sub( $timestamp, $board_start)

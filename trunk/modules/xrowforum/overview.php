@@ -9,7 +9,7 @@ $db = eZDB::instance();
 $Module = $Params['Module'];
 $sys = eZSys::instance();
 $xrowForumINI = eZINI::instance( 'xrowforum.ini' );
-$ForumIndexObject = $xrowForumINI->variable( 'IDs', 'ForumIndexObject' );
+$ForumIndexPageNodeID = $xrowForumINI->variable( 'IDs', 'ForumIndexPageNodeID' );
 $stats_limit = $xrowForumINI->variable( 'GeneralSettings', 'StatisticLimit' );
 $topic_class_id = $xrowForumINI->variable( 'ClassIDs', 'ForumTopic' );
 $post_class_id = $xrowForumINI->variable( 'ClassIDs', 'ForumReply' );
@@ -20,9 +20,9 @@ $now_time = getdate();
 $yesterday = $now_time[0]-86400;
 $error = array();
 
-if ($ForumIndexObject == '' or !is_numeric($ForumIndexObject))
+if ($ForumIndexPageNodeID == '' or !is_numeric($ForumIndexPageNodeID))
 {
-	array_push($error, "Select a proper ForumIndexObject in the settings");
+	array_push($error, "Select a proper ForumIndexPageNodeID in the settings");
 }
 
 if ($stats_limit == '' or !is_numeric($stats_limit))
@@ -48,7 +48,7 @@ if ($user_class_id == '' or !is_numeric($user_class_id))
 if (count($error) ==0)
 {
 	#read database
-	$forum_start = $db->arrayQuery("SELECT published FROM ezcontentobject WHERE id = $ForumIndexObject;");
+	$forum_start = $db->arrayQuery("SELECT published FROM ezcontentobject, ezcontentobject_tree WHERE ezcontentobject_tree.contentobject_id = ezcontentobject.id AND ezcontentobject_tree.main_node_id = $ForumIndexPageNodeID;");
 	$topiccount = $db->arrayQuery("SELECT COUNT(*)as Amount FROM ezcontentobject WHERE contentclass_id = $topic_class_id AND status='1';");
 	$postcount = $db->arrayQuery("SELECT COUNT(*)as Amount FROM ezcontentobject WHERE contentclass_id = $post_class_id AND status='1';");
 	$usercount = $db->arrayQuery("SELECT COUNT(*)as Amount FROM ezcontentobject WHERE contentclass_id = $user_class_id AND status='1';");

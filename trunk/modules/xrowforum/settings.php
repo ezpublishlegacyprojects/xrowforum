@@ -19,7 +19,7 @@ if( $http->hasPostVariable( "save_general_settings" ))
 {
 	if (is_numeric($http->postVariable( "forum_id" )) AND trim( $http->postVariable( "forum_id" ) ) != "")
 	{
-		$xrowForumINI->setVariable( 'IDs', 'ForumIndexObject' , $http->PostVariable( "forum_id" ));
+		$xrowForumINI->setVariable( 'IDs', 'ForumIndexPageNodeID' , $http->PostVariable( "forum_id" ));
 	}
 	else
 	{
@@ -179,7 +179,7 @@ if( $http->hasPostVariable( "save_general_settings" ))
 }
 
 #read all existing variables from ini (for template output)
-$forum_id = $xrowForumINI->variable( 'IDs', 'ForumIndexObject' );
+$forum_id = $xrowForumINI->variable( 'IDs', 'ForumIndexPageNodeID' );
 $mod_id = $xrowForumINI->variable( 'IDs', 'ModeratorGroupObjectID' );
 $user_class = $xrowForumINI->variable( 'ClassIDs', 'User' );
 $topic_class = $xrowForumINI->variable( 'ClassIDs', 'ForumTopic' );

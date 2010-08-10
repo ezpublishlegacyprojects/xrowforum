@@ -20,7 +20,7 @@
 
 {def $latest_item = ''
      $new_posts = ''
-     $forum_id = ezini('IDs','ForumIndexObject', 'xrowforum.ini')
+     $forum_id = ezini('IDs','ForumIndexPageNodeID', 'xrowforum.ini')
      $mod_node = ezini('IDs','ModeratorGroupObjectID', 'xrowforum.ini')
      $forum_has_moderator = false}
      
