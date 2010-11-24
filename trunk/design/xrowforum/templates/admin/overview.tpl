@@ -274,3 +274,5 @@
 
 {* DESIGN: Control bar END *}</div></div></div></div></div></div>
 </div>
+
+</div>
