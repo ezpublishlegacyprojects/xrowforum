@@ -108,32 +108,32 @@
             <td class="flag">
                 {if and($topic.data_map.closed.content|eq(1),$topic_reply_count|ge($hot_topic_number),not($hot_topic_number|eq(0)))}
                     {* closed and hot - if hot activated *}
-                    <img src={'forum/hot_closed_post.gif'|ezimage()} />
+                    <img src={'forum/hot_closed_post.gif'|ezimage()} alt="closed and hot" title="closed and hot" />
                 {elseif or(and($topic.data_map.closed.content|eq(1),$topic_reply_count|lt($hot_topic_number)),and($topic.data_map.closed.content|eq(1), $hot_topic_number|eq(0)))}
                      {* closed and not hot *}
-                    <img src={'forum/closed_area.gif'|ezimage()} />
+                    <img src={'forum/closed_area.gif'|ezimage()} alt="closed and not hot" title="closed and not hot" />
                 {elseif or(and($new_posts|count()|gt(0), $topic_reply_count|lt($hot_topic_number)),and($hot_topic_number|eq(0),$new_posts|count()|gt(0)))}
                      {* new and not hot *}
                     <a href="javascript: deflag('{$topic.node_id}')" title={"mark this forum as read"|i18n( "extension/xrowforum" )}>
-                        <img src={'forum/new_post.gif'|ezimage()} />
+                        <img src={'forum/new_post.gif'|ezimage()} alt="new and not hot" title="new and not hot" />
                     </a>
                 {elseif and($new_posts|count()|gt(0), $topic_reply_count|ge($hot_topic_number),not($hot_topic_number|eq(0)))}
                     {* new and hot - if hot activated *}
                     <a href="javascript: deflag('{$topic.node_id}')" title={"mark this forum as read"|i18n( "extension/xrowforum" )}>
-                        <img src={'forum/hot_new_post.gif'|ezimage()} />
+                        <img src={'forum/hot_new_post.gif'|ezimage()} alt="new and hot" title="new and hot" />
                     </a>
                 {elseif or(and($new_posts|count()|eq(0), $topic_reply_count|lt($hot_topic_number)),and($new_posts|count()|eq(0),$hot_topic_number|eq(0)))}
                     {* old and not hot *}
-                    <img src={'forum/old_post.gif'|ezimage()} />
+                    <img src={'forum/old_post.gif'|ezimage()} alt="old and not hot" title="old and not hot" />
                 {elseif and($new_posts|count()|eq(0), $topic_reply_count|ge($hot_topic_number),not($hot_topic_number|eq(0)))}
                     {* old and hot - if hot acitvated *}
-                    <img src={'forum/hot_old_post.gif'|ezimage()} />
+                    <img src={'forum/hot_old_post.gif'|ezimage()} alt="old and hot" title="old and hot" />
                 {/if}
             </td>
             <td class="topic">
                 <p>
                     {if $topic.object.data_map.sticky.content}
-                        <img class="forum-topic-sticky" src={"sticky-16x16-icon.gif"|ezimage} height="16" width="16" align="middle" alt="" />
+                        <img class="forum-topic-sticky" src={"sticky-16x16-icon.gif"|ezimage} height="16" width="16" align="middle" alt="sticky" />
                     {/if}
                     <a href={$topic.url_alias|ezurl}>{$topic.object.name|wash()}</a>
                     {if $new_posts|count()|gt(1)}
@@ -188,11 +188,11 @@
                         </div>
                     {/foreach}
                 {/if}
+                <form name="form_{$topic.node_id}" id="form_{$topic.node_id}" method="post" action={$node.url_alias|ezurl()}>
+                    <input name="subtree_delete" type="hidden" value="{$topic.path_string}" />
+                </form>
            </td>
         </tr>
-            <form name="form_{$topic.node_id}" id="form_{$topic.node_id}" method="post" action={$node.url_alias|ezurl()}>
-                <input name="subtree_delete" type="hidden" value={$topic.path_string} />
-            </form>
         {/foreach}
         </table>
 

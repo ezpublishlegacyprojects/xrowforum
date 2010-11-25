@@ -69,10 +69,10 @@
                     <td class="flag">
                         {if $new_posts|count()|gt(0)}
                             <a href="javascript: deflag('{$child.node_id}')" title={'mark this forum as read'|i18n( "extension/xrowforum" )}>
-                                <img src={'forum/new_post.gif'|ezimage()} />
+                                <img src={'forum/new_post.gif'|ezimage()} alt="new post" title="new post" />
                             </a>
                         {else}
-                            <img src={'forum/old_post.gif'|ezimage()} />
+                            <img src={'forum/old_post.gif'|ezimage()} alt="old post" title="old post" />
                         {/if}
                     </td>
                     <td class="forum">
@@ -92,19 +92,19 @@
                     <td>{fetch('content','tree_count',hash(parent_node_id,$child.node_id))}</td>
                     <td class="last-reply">
                         {foreach $latest_item as $topic}
-                             <a href={$topic.url_alias|ezurl}>{$topic.name}</a>
+                            <a href={$topic.url_alias|ezurl}>{$topic.name}</a>
                             <p class="date">{$topic.object.published|l10n(shortdatetime)}</p>
                             <a href={$topic.object.owner.main_node.url_alias|ezurl()}>{$topic.object.owner.name|wash()}</a>
                         {/foreach}
+                        {if and(is_set($other_param),$other_param|eq('line'))}
+                            <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={concat('content/view/full/', $forum_id)|ezurl()}>
+                        {else}
+                            <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={$node.url_alias|ezurl()}>
+                        {/if}
+                                <input name="subtree_delete" type="hidden" value="{$child.path_string}" />
+                            </form>
                     </td>
                 </tr>
-                {if and(is_set($other_param),$other_param|eq('line'))}
-                    <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={concat('content/view/full/', $forum_id)|ezurl()}>
-                {else}
-                    <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={$node.url_alias|ezurl()}>
-                {/if}
-                    <input name="subtree_delete" type="hidden" value={$child.path_string} />
-                    </form>
                 {undef $mods}
             {/foreach}
         </table>

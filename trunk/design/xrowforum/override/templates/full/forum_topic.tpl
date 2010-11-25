@@ -171,7 +171,7 @@
                     {if $ranking|eq('enabled')}
                         <p class="rank">{request_rank($owner.id)}</p>
                     {elseif is_set($owner.title)}
-                        {$owner.title|wash()}
+                        <p class="rank">{$owner.title|wash()}</p>
                     {/if}
                     {if $owner_map.image.has_content}
                         <div class="authorimage">
@@ -182,7 +182,7 @@
                         <p>{object_by_id($owner.id)} {'posts'|i18n( "extension/xrowforum" )}</p>
                      </div>
                     {if is_set( $owner_map.location )}
-                        <p>{"Location"|i18n( "extension/xrowforum" )}: {$owner_map.location.content|wash()}</p>
+                       {attribute_view_gui attribute=$owner_map.location}
                     {/if}
                     {if or(and($node.object.can_edit,or($owner.id|eq($current_user.contentobject_id),$moderator_here|eq(true))),and($policies.0.moduleName|eq('*'),$policies.0.functionName|eq('*')))}
                         <form method="post" action={"content/action/"|ezurl}>
@@ -205,7 +205,7 @@
                             <input type="hidden" name="ContentObjectLanguageCode" value="{$node.object.current_language}" />
                             <input type="hidden" name="ContentObjectID" value="{$node.object.id}" />
                             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
-                            <input class="button" name="MoveNodeButton" value="{'Move'|i18n( 'extension/xrowforum' )}" title="Move this item to another location." type="submit">
+                            <input class="button" name="MoveNodeButton" value="{'Move'|i18n( 'extension/xrowforum' )}" title="Move this item to another location." type="submit" />
                         </form>
                     {/if}
                     {if or(and($close_access, $moderator_here|eq(true)),and($policies.0.moduleName|eq('*'),$policies.0.functionName|eq('*')))}
@@ -264,7 +264,7 @@
                         {if $ranking|eq('enabled')}
                             <p class="rank">{request_rank($owner.id)}</p>
                         {elseif is_set($owner_map.title)}
-                            {$owner_map.title|wash()}                    
+                            <p class="rank">{$owner_map.title|wash()}</p>             
                         {/if}
                     </p>
 
@@ -279,7 +279,7 @@
                      </div>
 
                     {if is_set( $owner_map.location )}
-                        <p>{"Location"|i18n( "extension/xrowforum" )}: {$owner_map.location.content|wash()}</p>
+                        {attribute_view_gui attribute=$owner_map.location}
                     {/if}
                     {if or(and($reply.object.can_edit,or($owner.id|eq($current_user.contentobject_id),$moderator_here|eq(true))),and($policies.0.moduleName|eq('*'),$policies.0.functionName|eq('*')))}
                         <form method="post" action={"content/action/"|ezurl}>
@@ -301,7 +301,7 @@
                             <input type="hidden" name="ContentObjectLanguageCode" value="{$node.object.current_language}" />
                             <input type="hidden" name="ContentObjectID" value="{$reply.object.id}" />
                             <input type="hidden" name="ContentNodeID" value="{$reply.node_id}" />    
-                            <input class="button" name="MoveNodeButton" value="{'Move'|i18n( 'extension/xrowforum' )}" title="Move this item to another location." type="submit">
+                            <input class="button" name="MoveNodeButton" value="{'Move'|i18n( 'extension/xrowforum' )}" title="Move this item to another location." type="submit" />
                         </form>
                     {/if}
                 </td>
