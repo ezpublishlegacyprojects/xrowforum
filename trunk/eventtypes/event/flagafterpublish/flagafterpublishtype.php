@@ -16,8 +16,10 @@ class flagAfterPublishType extends eZWorkflowEventType
     	$xrowForumINI = eZINI::instance( 'xrowforum.ini' );
         $topic_class_id = $xrowForumINI->variable( 'ClassIDs', 'ForumTopic' );
 		$user_active = $xrowForumINI->variable( 'GeneralSettings', 'KeepFlagDuration' );
-    	$now_time = time();
-    	#limit set to fetch "active user" only
+    	#60 seconds * 60 minutes * 24 hours = 86400
+		$user_active = $user_active * 86400;
+		$now_time = time();
+		#limit set to fetch "active user" only
         $limit = $now_time - $user_active;
         $current_userID = eZUser::currentUserID();
     	$parameters = $process->attribute( 'parameter_list' );
