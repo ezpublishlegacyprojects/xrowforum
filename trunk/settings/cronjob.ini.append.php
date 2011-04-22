@@ -3,7 +3,10 @@
 [CronjobSettings]
 ExtensionDirectories[]=xrowforum
 
-[CronjobPart-session]
+[CronjobPart-mostuser]
 Scripts[]=most_user_online.php
+
+[CronjobPart-cleanflags]
+Scripts[]=clean_flag.php
 
 */ ?>

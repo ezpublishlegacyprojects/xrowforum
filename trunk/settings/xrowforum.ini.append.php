@@ -33,6 +33,8 @@ PostHistoryLimit=20
 HotTopicNumber=50
 #the amount of maximum fetched entries for the statistic area
 StatisticLimit=5
+#the length the flag notifications will be stored in database (time by clean_flag.php cronjob) value is calculated in days
+KeepFlagDuration=30
 
 [BB-Codes]
 #controls the javascript editor

@@ -144,6 +144,10 @@
                     <td>StatisticLimit</td>
                     <td><input name="StatisticLimit" type="text" value="{$StatisticLimit}" /> (Top X)</td>
                 </tr>
+				<tr>
+                    <td>KeepFlagDuration</td>
+                    <td><input name="KeepFlagDuration" type="text" value="{$KeepFlagDuration}" /> days</td>
+                </tr>
             </table>
             
             <div class="context-toolbar">

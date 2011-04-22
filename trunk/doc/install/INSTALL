@@ -76,14 +76,15 @@ EZPUBLISHROOT=/var/www/project
 PHP=/usr/local/php5/bin/php5
 
 # Executes the runcronjobs.php script every 5minutes
-*/5 * * * * cd $EZPUBLISHROOT && $PHP runcronjobs.php session
+*/5 * * * * cd $EZPUBLISHROOT && $PHP runcronjobs.php mostuser
+1 2 * * * cd $EZPUBLISHROOT && $PHP runcronjobs.php cleanflags
 
 VIII. Edit the Content Classes:
 ===============================
 
 VIII.a) User - Class:
         1) add a new attribute with the identifier name "birthday" of the datatype "birthday"
-        2) add a new attribute with the identifier name "moderator" of the datatype "object relation"
+        2) add a new attribute with the identifier name "moderator" of the datatype "object relations"
        (for more information see the screenshot "user_class.jpg") 
         
 

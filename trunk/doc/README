@@ -15,6 +15,7 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
         - after reading the new post/thread the flag will be removed
         - the user can mark all forums as read with one click (remove all flags)
         - the user can remove the flags for seperate forums or topics ONLY too
+		- cronjob to clean the "xrowforum_notification" table after a certain duration (controlable via backend)
     
     2. Backend Forum Adminstration Interface:
         - Tab 1: Forum Statistics
@@ -95,7 +96,6 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
 ====================
     - simple PM/Friendlist system
     - smiley Upload and administration of smilies via backend module
-    - cronjob to clean the "xrowforum_notification" table
     - Forums with password protection
     - switch to tinymce editor for the frontend ( http://tinymce.moxiecode.com ) and youtube video implementation
     - limited signature char length
@@ -107,6 +107,8 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
 =============
     - 08.07.2010:   - V.1 released on projects.ez.no
                     - no changes
+	- 22.04.2011:   - cronjob to clean the "xrowforum_notification" table added
+					- cronjob session renamed to "mostuser"
 
 6. the xrowForum extensions also includes:
 ==========================================

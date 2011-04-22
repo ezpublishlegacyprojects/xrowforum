@@ -161,6 +161,14 @@ if( $http->hasPostVariable( "save_general_settings" ))
     {
         array_push($error, "Please select a proper StatisticLimit");
     }
+	if (is_numeric($http->postVariable( "KeepFlagDuration" )) AND trim( $http->postVariable( "KeepFlagDuration" ) ) != "")
+    {
+       $xrowForumINI->setVariable( 'GeneralSettings', 'KeepFlagDuration', $http->postVariable( "KeepFlagDuration" ) );
+    }
+    else
+    {
+        array_push($error, "Please select a proper KeepFlagDuration");
+    }
 	if (empty ($error))
 	{
 	    $bbcodelist_fetch = $xrowForumINI->group( 'BB-Codes' );
@@ -197,6 +205,7 @@ $SignatureImage = $xrowForumINI->variable( 'GeneralSettings', 'SignatureImage' )
 #$EmbeddedImageHeight = $xrowForumINI->variable( 'MaxImageSizes', 'EmbeddedImageHeight' );
 #$EmbeddedImageWidth = $xrowForumINI->variable( 'MaxImageSizes', 'EmbeddedImageWidth' );
 $StatisticLimit = $xrowForumINI->variable( 'GeneralSettings', 'StatisticLimit' );
+$KeepFlagDuration = $xrowForumINI->variable( 'GeneralSettings', 'KeepFlagDuration' );
 $bbcodelist = $xrowForumINI->group( 'BB-Codes' );
 
 #deliver variables to template
@@ -227,6 +236,7 @@ $tpl->setVariable( 'SignatureImage', $SignatureImage );
 #$tpl->setVariable( 'EmbeddedImageHeight', $EmbeddedImageHeight );
 #$tpl->setVariable( 'EmbeddedImageWidth', $EmbeddedImageWidth );
 $tpl->setVariable( 'StatisticLimit', $StatisticLimit );
+$tpl->setVariable( 'KeepFlagDuration', $KeepFlagDuration );
 $tpl->setVariable( 'bbcodelist', $bbcodelist['BBCodeList'] );
 
 #tells php file what the template to deliver is and how it looks like
