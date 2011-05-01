@@ -1,5 +1,7 @@
 <?php
 
+require_once( 'kernel/common/i18n.php' );
+
 class updateAfterPublishType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = 'updateafterpublish';

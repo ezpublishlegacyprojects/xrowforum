@@ -300,7 +300,7 @@ function storeCaret(textEl) {
                         {if $bbcodes.fontsize|eq('enabled')}
                             <td>
                                 <select name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]');this.selectedIndex=0;" >
-                                    <option value="0"">Font size</option>
+                                    <option value="0">Font size</option>
                                     <option value="7">Tiny</option>
                                     <option value="9">Small</option>
                                     <option value="12">Normal</option>

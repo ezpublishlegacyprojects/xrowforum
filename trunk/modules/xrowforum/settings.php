@@ -2,6 +2,7 @@
 
 include_once ( 'kernel/common/template.php' );
 include_once( 'lib/ezdb/classes/ezdb.php' );
+require_once( 'kernel/common/i18n.php' );
 
 $http = eZHTTPTool::instance();
 $tpl = templateInit();
@@ -169,6 +170,22 @@ if( $http->hasPostVariable( "save_general_settings" ))
     {
         array_push($error, "Please select a proper KeepFlagDuration");
     }
+	if($http->haspostVariable( "checkbox_mailnotification" ))
+    {
+        $xrowForumINI->setVariable( 'PrivateMessaging', 'AllowSendingNotificationMails', 'true' );
+    }
+    else
+    {
+        $xrowForumINI->setVariable( 'PrivateMessaging', 'AllowSendingNotificationMails', 'false' );
+    }
+	if (is_numeric($http->postVariable( "PmsPerPage" )) AND trim( $http->postVariable( "PmsPerPage" ) ) != "")
+    {
+        $xrowForumINI->setVariable( 'PrivateMessaging', 'PmsPerPage', $http->postVariable( "PmsPerPage" ) );
+    }
+    else
+    {
+        array_push($error, "Please select a proper PmsPerPage value");
+    }
 	if (empty ($error))
 	{
 	    $bbcodelist_fetch = $xrowForumINI->group( 'BB-Codes' );
@@ -206,6 +223,8 @@ $SignatureImage = $xrowForumINI->variable( 'GeneralSettings', 'SignatureImage' )
 #$EmbeddedImageWidth = $xrowForumINI->variable( 'MaxImageSizes', 'EmbeddedImageWidth' );
 $StatisticLimit = $xrowForumINI->variable( 'GeneralSettings', 'StatisticLimit' );
 $KeepFlagDuration = $xrowForumINI->variable( 'GeneralSettings', 'KeepFlagDuration' );
+$AllowSendingNotificationMails = $xrowForumINI->variable( 'PrivateMessaging', 'AllowSendingNotificationMails' );
+$PmsPerPage = $xrowForumINI->variable( 'PrivateMessaging', 'PmsPerPage' );
 $bbcodelist = $xrowForumINI->group( 'BB-Codes' );
 
 #deliver variables to template
@@ -237,6 +256,8 @@ $tpl->setVariable( 'SignatureImage', $SignatureImage );
 #$tpl->setVariable( 'EmbeddedImageWidth', $EmbeddedImageWidth );
 $tpl->setVariable( 'StatisticLimit', $StatisticLimit );
 $tpl->setVariable( 'KeepFlagDuration', $KeepFlagDuration );
+$tpl->setVariable( 'AllowSendingNotificationMails', $AllowSendingNotificationMails );
+$tpl->setVariable( 'PmsPerPage', $PmsPerPage );
 $tpl->setVariable( 'bbcodelist', $bbcodelist['BBCodeList'] );
 
 #tells php file what the template to deliver is and how it looks like

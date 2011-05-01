@@ -29,5 +29,17 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/p
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/operator_merge.php',
                                     'class' => 'OperatorMerge',
                                     'operator_names' => array( 'operator_merge' ) );
+									
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/pm_messagecheck.php',
+                                    'class' => 'PmMessageCheck',
+                                    'operator_names' => array( 'pm_message_check' ) );
+
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/pm_markasread.php',
+                                    'class' => 'PmMarkAsRead',
+                                    'operator_names' => array( 'pm_mark_as_read' ) );
+
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/pm_relationcheck.php',
+                                    'class' => 'PmRelationCheck',
+                                    'operator_names' => array( 'pm_is_inRelation', 'pm_relation_fetch' ) );
 
 ?>   

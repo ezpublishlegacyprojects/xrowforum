@@ -140,7 +140,7 @@
                     <td><input name="EmbeddedImageWidth" type="text" value="{$EmbeddedImageWidth}" /> px</td>
                 </tr>
                 *}
-                 <tr>
+                <tr>
                     <td>StatisticLimit</td>
                     <td><input name="StatisticLimit" type="text" value="{$StatisticLimit}" /> (Top X)</td>
                 </tr>
@@ -150,13 +150,40 @@
                 </tr>
             </table>
             
-            <div class="context-toolbar">
-            <div class="block">
-                <div class="break"></div>
-                <p>{'BBCodes'|i18n( 'extension/xrowforum' )}</p>
+			<div class="context-toolbar">
+                <div class="block">
+                    <div class="break"></div>
+                    <p>{'private messaging settings'|i18n( 'extension/xrowforum' )}</p>
+                </div>
             </div>
-        </div>
             
+            
+             <table class="list">
+                <thead>
+                    <tr>
+                        <th width="300">{'Setting'|i18n('extension/xrowforum')}</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>AllowSendingNotificationMails</td>
+                    <td>
+                        <input value="enabled" name="checkbox_mailnotification" type="checkbox"{if $AllowSendingNotificationMails|eq('true')}checked="checked"{/if} />
+                    </td>
+                </tr>
+				<tr>
+                    <td>PmsPerPage</td>
+                    <td><input name="PmsPerPage" type="text" value="{$PmsPerPage}" /></td>
+                </tr>
+            </table>
+			
+            <div class="context-toolbar">
+				<div class="block">
+					<div class="break"></div>
+					<p>{'BBCodes'|i18n( 'extension/xrowforum' )}</p>
+				</div>
+			</div>
+        
             <table class="list">
                 <thead>
                     <tr>

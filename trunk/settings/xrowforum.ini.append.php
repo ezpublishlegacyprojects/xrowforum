@@ -67,4 +67,9 @@ BBCodeList[smilies]=enabled
 Amount=0
 Date=
 
+[PrivateMessaging]
+#set it either to true or false
+AllowSendingNotificationMails=true
+PmsPerPage=10
+
 */ ?>

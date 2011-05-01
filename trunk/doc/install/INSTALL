@@ -34,8 +34,14 @@ ActiveExtensions[]=xrowforum
 IV. Database:
 ==============
 
+Forum:
 Add the 3 new required tables to your database which is used by your eZ Publish instance.
-path of the SQL file: extension/xrowforum/doc/install/tables.sql
+path of the SQL file: extension/xrowforum/doc/install/forum_tables.sql
+
+PM:
+
+Add the 3 new required tables to your database which is used by your eZ Publish instance.
+path of the SQL file: extension/xrowforum/doc/install/pm_tables.sql
 
 Shell command when you navigate to your eZPublish Root:
 
@@ -147,10 +153,10 @@ X. Configuration:
         - "xrowforum/overview" (displays the statistic page)
         - "xrowforum/create" (allows to reply on forum topics)
         - "xrowforum/removeflag" (allows to remove ALL flags for a certain user)
+		- "pm/*" (allows your user to use the whole PM module)
   
   6) Edit the Anonymous Usergroup and add "Content - Read - Section (Users)" permissions (required for birthdays)
   7) additional: give permissions to the moderator role to modify ranks in the backend ("xrowforum/ranks") and permissions to administrate forum via the backend ("xrowforum/settings")
-  
   
 - go to the backend and click on the "xrowForum" tab then on general settings and fill out the first 5 fields correctly! (ID settings)
 - or navigate to http://"url"/"admin_siteaccess"/xrowforum/settings and fill out the first 5 fields correctly! (ID settings)

@@ -2,9 +2,11 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
 
 1. Requirements:
 ================
-    - This extension is designed for eZ Publish 4.2 (it may run for lower or higher versions also)
+    - This extension is designed for eZ Publish 4.2
+		- and is tested for eZ Publish 4.2, 4.3, 4.4, 4.5
+		- it may run for lower versions also
     - PHP 5.x
-    - activated JavaScript in your browser
+    - activated JavaScript in your browser!!
 
 2.Feature List(implemented):
 ============================
@@ -70,7 +72,47 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
         - avoids problems with "object unavailabilty" which appeared in the past on multilingual sites
         - new template (= code cleanup)
     
-    7. other
+	7. Private Messaging module
+		- Inbox
+			* search in inbox
+			* new messages special displayed
+			* straight reply function
+			* remove messages
+			* sorting messages
+		- Outbox
+			* search in outbox
+			* new messages special displayed
+			* straight reply function
+			* remove messages
+			* sorting messages
+		- Network Overview
+			* option do add friends and to block user
+			* Friendlist
+			* Blocklist
+			* Friendrequestlist
+		- Create PM
+			* full validation
+			* Editor
+			* jQuery name suggest
+		- View PM
+		- different Operators
+			* Private Message Count (inbox: total/new/old, outbox: total)
+			* Relation Check
+				- is user XX blocked? is user XX a friend?
+				- friendlist
+				- who of my friends is online / offline
+			* Requestcheck
+		- Friend Request "Workflow"
+			- add => accept => is friend => break friendship
+		- Block User
+			- block removable if you are the user whoch actually started blocking the other user
+		- Mail Notification
+			* enable/disable via .ini setting
+			* if enabled then each user can decide if notifications are wanted or not
+				- sends notification on: new PM in inbox, new Friend Request, User accepted the request, User rejected the request
+		- and much more..
+	
+    8. other
         - user have a new attribute (birthday)
         - you are able to quote posts and topics (the quoted content will be posted into a new object automatically in quote tags)
         - forumindex page with more functions and for a better overview
@@ -94,7 +136,6 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
 
 4. Planned Features:
 ====================
-    - simple PM/Friendlist system
     - smiley Upload and administration of smilies via backend module
     - Forums with password protection
     - switch to tinymce editor for the frontend ( http://tinymce.moxiecode.com ) and youtube video implementation
@@ -105,10 +146,12 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
 
 5. Changelog:
 =============
-    - 08.07.2010:   - V.1 released on projects.ez.no
+    - 08.07.2010:   - released on projects.ez.no
                     - no changes
 	- 22.04.2011:   - cronjob to clean the "xrowforum_notification" table added
 					- cronjob session renamed to "mostuser"
+	- 01.05.2011:   - eZ 4.5 ready
+				    - new PM Module added
 
 6. the xrowForum extensions also includes:
 ==========================================
