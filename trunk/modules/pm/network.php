@@ -17,14 +17,28 @@ $current_user = eZUser::currentUser();
 $user_id = $current_user->ContentObjectID;
 $xrowForumINI = eZINI::instance( 'xrowforum.ini' );
 $user_class_id = $xrowForumINI->variable( 'ClassIDs', 'User' );
+$path_strings = $xrowForumINI->variable( 'PrivateMessaging', 'SelectableUserPathString' );
 $name_list_var = array();
 $error_msg = array();
 $success = "";
+$subtree = "";
 
-$name_list_sql = $db->arrayQuery("SELECT name FROM ezcontentobject where contentclass_id = $user_class_id order by name asc");
+foreach($path_strings as $path_string)
+{
+	if ($subtree != "")
+	{
+		$subtree = $subtree . " OR ezcontentobject_tree.path_string LIKE '$path_string%'";
+	}
+	else
+	{
+		$subtree = "ezcontentobject_tree.path_string LIKE '$path_string%'";
+	}
+}
+
+$name_list_sql = $db->arrayQuery("SELECT ezcontentobject.name FROM ezcontentobject_tree, ezcontentobject where ezcontentobject.id = ezcontentobject_tree.contentobject_id and ezcontentobject.contentclass_id = $user_class_id and ($subtree) and ezcontentobject.id != $user_id group by ezcontentobject.name order by name asc;");
 foreach ($name_list_sql as $name)
 {
-	array_push($name_list_var, $name['name']);
+	array_push($name_list_var, strtolower($name['name']));
 }
 $name_list = implode(",", $name_list_var);
 if (count($name_list) >= 1)
@@ -52,9 +66,16 @@ if ( ($Module->isCurrentAction('NetworkAction') OR $http->hasPostVariable( 'reci
 			$check_user = $db->arrayQuery("SELECT * FROM ezcontentobject where contentclass_id = $user_class_id and name = '$recipient_name';");
 			if (count($check_user) >= 1 )
 			{
-				$recipient_obj_id = $check_user[0]["id"];
-				$check_user = true;
-				$userObject = eZContentObject::fetch( $recipient_obj_id );
+				if(in_array(strtolower($recipient_name), $name_list_var))
+				{
+					$recipient_obj_id = $check_user[0]["id"];
+					$check_user = true;
+					$userObject = eZContentObject::fetch( $recipient_obj_id );
+				}
+				else
+				{
+					array_push($error_msg, "You are not allowed to contact this user");
+				}
 			}
 			else
 			{
@@ -72,10 +93,21 @@ if ( ($Module->isCurrentAction('NetworkAction') OR $http->hasPostVariable( 'reci
 			}
 			$userObject = eZContentObject::fetch( $namedParameters['RelatedUserID'] );
 			if (is_object ($userObject))
+			{	
+				if(in_array(strtolower($recipient_name), $name_list_var))
+				{
+					$recipient_name = $userObject->attribute('name');
+					$tpl->setVariable( 'recipient_name', $recipient_name);
+					$check_user = true;
+				}
+				else
+				{
+					array_push($error_msg, "You are not allowed to contact this user");
+				}
+			}
+			else
 			{
-				$recipient_name = $userObject->attribute('name');
-				$tpl->setVariable( 'recipient_name', $recipient_name);
-				$check_user = true;
+				$check_user = false;
 			}
 			$recipient_obj_id = $namedParameters['RelatedUserID'];
 			$tpl->setVariable( 'action_type', $action_type );
@@ -111,7 +143,6 @@ if ( ($Module->isCurrentAction('NetworkAction') OR $http->hasPostVariable( 'reci
 		}
 		if ($check_user)
 		{
-
 			if (count($error_msg) == 0)
 			{
 				if ($action_type == 0)

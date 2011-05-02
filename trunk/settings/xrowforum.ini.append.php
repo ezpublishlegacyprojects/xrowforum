@@ -71,5 +71,7 @@ Date=
 #set it either to true or false
 AllowSendingNotificationMails=true
 PmsPerPage=10
+SelectableUserPathString[]
+SelectableUserPathString[]=/1/5/12
 
 */ ?>

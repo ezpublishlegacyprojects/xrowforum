@@ -12,13 +12,27 @@ $user = eZUser::currentUser();
 $namedParameters = $Module->NamedParameters;
 $xrowForumINI = eZINI::instance( 'xrowforum.ini' );
 $user_class_id = $xrowForumINI->variable( 'ClassIDs', 'User' );
+$path_strings = $xrowForumINI->variable( 'PrivateMessaging', 'SelectableUserPathString' );
 $error_msg = array();
 $name_list_var = array();
+$subtree = "";
 
-$name_list_sql = $db->arrayQuery("SELECT name FROM ezcontentobject where contentclass_id = $user_class_id order by name asc");
+foreach($path_strings as $path_string)
+{
+	if ($subtree != "")
+	{
+		$subtree = $subtree . " OR ezcontentobject_tree.path_string LIKE '$path_string%'";
+	}
+	else
+	{
+		$subtree = "ezcontentobject_tree.path_string LIKE '$path_string%'";
+	}
+}
+
+$name_list_sql = $db->arrayQuery("SELECT ezcontentobject.name FROM ezcontentobject_tree, ezcontentobject where ezcontentobject.id = ezcontentobject_tree.contentobject_id and ezcontentobject.contentclass_id = $user_class_id and ($subtree) and ezcontentobject.id != $user->ContentObjectID group by ezcontentobject.name order by ezcontentobject.name asc;");
 foreach ($name_list_sql as $name)
 {
-	array_push($name_list_var, $name['name']);
+	array_push($name_list_var, strtolower($name['name']));
 }
 $name_list = implode(",", $name_list_var);
 if (count($name_list) >= 1)
@@ -89,8 +103,15 @@ else
 			$check_user = $db->arrayQuery("SELECT * FROM ezcontentobject where contentclass_id = $user_class_id and name = '$recipient_name';");
 			if (count($check_user) >= 1 )
 			{
-				$recipient_obj_id = $check_user[0]["id"];
-				$userObject = eZContentObject::fetch( $recipient_obj_id );
+				if(in_array(strtolower($recipient_name), $name_list_var))
+				{
+					$recipient_obj_id = $check_user[0]["id"];
+					$userObject = eZContentObject::fetch( $recipient_obj_id );
+				}
+				else
+				{
+					array_push($error_msg, "You are not allowed to contact this user");
+				}
 			}
 			else
 			{
