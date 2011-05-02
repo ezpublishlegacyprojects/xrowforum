@@ -1,3 +1,5 @@
+{def $mails_allowed = ezini('PrivateMessaging','AllowSendingNotificationMails','xrowforum.ini')}
+
 {if $direction}
 	{if $direction|eq("asc")}
 		{set $direction = "desc"}
@@ -51,13 +53,15 @@
 			<div class="attribute-header">
 				<h1>{'Inbox'|i18n('extension/xrowpm')}</h1>
 		    </div>
-			<div class="block">
-				<form id="switch_pref" name="switch_pref" action="" method="post">
-					<label>{'Send E-Mail notification'|i18n('extension/xrowpm')}</label>
-					<input class="inline" name="switch_pref" type="hidden" size="30" value="{$pref}" />
-					<input type="checkbox" value="{$pref}" {if $pref|eq(1)}checked="checked"{/if} onchange="check_change();"/>
-				</form>
-			</div>
+	    	{if $mails_allowed|eq("true")}
+				<div class="block">
+					<form id="switch_pref" name="switch_pref" action="" method="post">
+						<label>{'Send E-Mail notification'|i18n('extension/xrowpm')}</label>
+						<input class="inline" name="switch_pref" type="hidden" size="30" value="{$pref}" />
+						<input type="checkbox" value="{$pref}" {if $pref|eq(1)}checked="checked"{/if} onchange="check_change();"/>
+					</form>
+				</div>
+			{/if}
 			<div class="block">
 				<a href="/pm/create">{'New Message'|i18n('extension/xrowpm')}</a> {if $search_on|eq('true')} / <a href="/pm/inbox">{'see all'|i18n('extension/xrowpm')}</a>{/if}
 			</div>
