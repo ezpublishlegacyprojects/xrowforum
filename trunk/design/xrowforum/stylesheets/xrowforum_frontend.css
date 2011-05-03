@@ -153,3 +153,20 @@ fieldset
 {
 	display: inline;
 }
+
+#forum_top_right
+{
+	float: right;
+}
+
+
+#forum_top_left
+{
+	float: left;
+}
+
+.user_state p
+{
+	font-style: italic;
+	font-weight: bold;
+}

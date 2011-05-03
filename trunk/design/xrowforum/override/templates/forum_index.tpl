@@ -18,12 +18,23 @@
         </div>
         
         {if $current_user.is_logged_in}   
-            <p>
-                {"Welcome"|i18n("extension/xrowforum")} {$current_user.contentobject.name}! <br />
-                {"Your last login was"|i18n("extension/xrowforum")}: {$current_user.last_visit|l10n( 'shortdatetime' )}<br />
-                <a class="bullet_item" href={"/xrowforum/removeflags"|ezurl}>{"mark all forums as read"|i18n("extension/xrowforum")}</a>
-                <a class="bullet_item" href={"xrowforum/overview"|ezurl}>{"see forum statistics"|i18n("extension/xrowforum")}</a>
-            </p> 
+            <div class="border-box">
+				<div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
+				<div class="border-ml"><div class="border-mr"><div class="border-mc">
+		            <div id="forum_top_left">
+		            	<p>
+		                {"Welcome"|i18n("extension/xrowforum")} {$current_user.contentobject.name}! <br />
+		                {"Your last login was"|i18n("extension/xrowforum")}: {$current_user.last_visit|l10n( 'shortdatetime' )}<br />
+		                <a class="bullet_item" href={"/xrowforum/removeflags"|ezurl}>{"mark all forums as read"|i18n("extension/xrowforum")}</a>
+		                <a class="bullet_item" href={"xrowforum/overview"|ezurl}>{"see forum statistics"|i18n("extension/xrowforum")}</a>
+		            	</p> 
+		            </div>
+		            <div id="forum_top_right">
+		            	{include uri='design:pm/control_menu.tpl'}
+		            </div>
+	            </div></div></div>
+				<div class="border-bl"><div class="border-br"><div class="border-bc"></div></div></div>
+			</div>
         {/if}
         
         {if $node.object.data_map.description.has_content}

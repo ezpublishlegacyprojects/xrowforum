@@ -38,6 +38,7 @@
                                                           'all_relations', true() ) )
      $moderator_here = false
      $policies=fetch( 'user', 'user_role', hash( 'user_id', $current_user.contentobject_id ) )
+     $user_online = ''
 }
 
 {if $related|count()|gt(0)}
@@ -167,7 +168,15 @@
         {if $view_parameters.offset|lt( 1 )}
             <tr class="bglight">
                 <td class="author">
-                    <p class="author">{$owner.name|wash()}</p>
+                    <p class="author">
+                    	<a href={$owner.main_node.url_alias|ezurl()}>{$owner.name|wash()}</a>
+                    	{set $user_online=fetch( 'user', 'is_logged_in', hash( 'user_id', $owner.id ) )}
+                    	{if $user_online}
+                    		(online)
+                    	{else}
+                    		(offline)
+                    	{/if}
+                    </p>
                     {if $ranking|eq('enabled')}
                         <p class="rank">{request_rank($owner.id)}</p>
                     {elseif is_set($owner.title)}
@@ -178,6 +187,13 @@
                             {attribute_view_gui attribute=$owner_map.image image_class=small}
                         </div>
                     {/if}
+                    <div class="user_state">
+	                    {if pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2)}
+	                    	 <p class="blocked_user">User Blocked</p>
+	                    {elseif pm_is_inRelation( $current_user.contentobject_id, $owner.id, 1)}
+	                    	 <p class="friend_user">Your Friend</p>
+	                    {/if}
+                    </div>
                      <div class="post_count_author">
                         <p>{object_by_id($owner.id)} {'posts'|i18n( "extension/xrowforum" )}</p>
                      </div>
@@ -214,6 +230,31 @@
                             <input type="hidden" name="NodeID" value="{$node.node_id}" />
                         </form>
                     {/if}
+                    {if $owner.id|ne($current_user.contentobject_id)}
+						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
+							<form action={concat('/pm/create/', $owner.id )|ezurl()}" method="post" >
+								<input class="defaultbutton" type="submit" name="ReplyButton" value="{'send PM'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+						{if and(
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 1)),
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 0)),
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))
+							    )}
+							<form action="/pm/network" method="post">
+								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
+								<input class="box" type="hidden" name="action_type" value="0" />						
+								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'friendship request'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
+							<form action="/pm/network" method="post">
+								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
+								<input class="box" type="hidden" name="action_type" value="1" />	
+								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'block user'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+					{/if}
                 </td>
                 <td class="message">
                     <p class="date">
@@ -260,19 +301,32 @@
                     {set $owner = $reply.object.owner
                          $owner_map = $owner.data_map}
                    
-                    <p class="author">{$owner.name|wash()}
-                        {if $ranking|eq('enabled')}
-                            <p class="rank">{request_rank($owner.id)}</p>
-                        {elseif is_set($owner_map.title)}
-                            <p class="rank">{$owner_map.title|wash()}</p>             
-                        {/if}
+                    <p class="author"><a href={$owner.main_node.url_alias|ezurl()}>{$owner.name|wash()}</a>
+                        {set $user_online=fetch( 'user', 'is_logged_in', hash( 'user_id', $owner.id ) )}
+                    	{if $user_online}
+                    		(online)
+                    	{else}
+                    		(offline)
+                    	{/if}
                     </p>
+					{if $ranking|eq('enabled')}
+                    	<p class="rank">{request_rank($owner.id)}</p>
+                    {elseif is_set($owner_map.title)}
+                    	<p class="rank">{$owner_map.title|wash()}</p>             
+                    {/if}
 
                     {if $owner_map.image.has_content}
                         <div class="authorimage">
                             {attribute_view_gui attribute=$owner_map.image image_class=small}
                         </div>
                     {/if}
+                    <div class="user_state">
+	                    {if pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2)}
+	                    	 <p class="blocked_user">User Blocked</p>
+	                    {elseif pm_is_inRelation( $current_user.contentobject_id, $owner.id, 1)}
+	                    	 <p class="friend_user">Your Friend</p>
+	                    {/if}
+                    </div>
                     
                      <div class="post_count_children">
                         <p>{object_by_id($owner.id)} {'posts'|i18n( "extension/xrowforum" )}</p>
@@ -304,6 +358,31 @@
                             <input class="button" name="MoveNodeButton" value="{'Move'|i18n( 'extension/xrowforum' )}" title="Move this item to another location." type="submit" />
                         </form>
                     {/if}
+                    {if $owner.id|ne($current_user.contentobject_id)}
+						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
+							<form action={concat('/pm/create/', $owner.id )|ezurl()}" method="post" >
+								<input class="defaultbutton" type="submit" name="ReplyButton" value="{'send PM'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+						{if and(
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 1)),
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 0)),
+								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))
+							    )}
+							<form action="/pm/network" method="post">
+								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
+								<input class="box" type="hidden" name="action_type" value="0" />						
+								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'friendship request'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
+							<form action="/pm/network" method="post">
+								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
+								<input class="box" type="hidden" name="action_type" value="1" />	
+								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'block user'|i18n('extension/xrowpm')}" />
+							</form>
+						{/if}
+					{/if}
                 </td>
                 <td class="message">
                     <p class="date">
