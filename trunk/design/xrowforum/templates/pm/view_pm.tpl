@@ -12,15 +12,31 @@
 		
 		{if $message}
 			{def $sender = fetch( 'content', 'object', hash( 'object_id', $message.0.sender ) )
-				 $recipient = fetch( 'content', 'object', hash( 'object_id', $message.0.recipient ) )}
+				 $recipient = fetch( 'content', 'object', hash( 'object_id', $message.0.recipient ) )
+				 $sender_on=fetch( 'user', 'is_logged_in', hash( 'user_id', $message.0.sender ) )
+ 				 $recipient_on=fetch( 'user', 'is_logged_in', hash( 'user_id', $message.0.recipient ) )}
 			<table>
 				<tr>
 					<td><label>{'from'|i18n('extension/xrowpm')}:</label></td>
-					<td><a href={$sender.main_node.url_alias|ezurl()}>{$sender.name|wash()}</a></td>
+					<td>
+						<a href={$sender.main_node.url_alias|ezurl()}>{$sender.name|wash()}</a>
+						{if $sender_on}
+							(online)
+						{else}
+							(offline)
+						{/if}
+					</td>
 				</tr>
 				<tr>
 					<td><label>{'to'|i18n('extension/xrowpm')}:</label></td>
-					<td><a href={$recipient.main_node.url_alias|ezurl()}>{$recipient.name|wash()}</a></td>
+					<td>
+						<a href={$recipient.main_node.url_alias|ezurl()}>{$recipient.name|wash()}</a>
+						{if $recipient_on}
+							(online)
+						{else}
+							(offline)
+						{/if}
+					</td>
 				</tr>
 				<tr>
 					<td><label>{'sent date'|i18n('extension/xrowpm')}:</label></td>
