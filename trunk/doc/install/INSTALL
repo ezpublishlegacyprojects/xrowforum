@@ -45,8 +45,8 @@ path of the SQL file: extension/xrowforum/doc/install/pm_tables.sql
 
 Shell command when you navigate to your eZPublish Root:
 
-mysql -u<user> -p<password> -D<database_name> < extension/xrowforum/doc/install/tables.sql
-
+mysql -u<user> -p<password> -D<database_name> < extension/xrowforum/doc/install/forum_tables.sql
+mysql -u<user> -p<password> -D<database_name> < extension/xrowforum/doc/install/pm_tables.sql
 
 V. Autoloads:
 =============
