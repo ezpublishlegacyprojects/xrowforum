@@ -11,12 +11,20 @@ Download the xrowForum extension and unpack it into your extensions folder (ezpu
 II. Filesystem-Patch:
 =====================
 
+1) Cookie Patch
+
 NOTE: this will be obsolete when you use eZ version 4.4 or when using a revision greater than rev. '25217'
       - http://issues.ez.no/IssueView.php?Id=16566
 
 run the patchfile located it extension/xrowforum/doc/install/patch/cookies_patch.patch
 or edit the ezurloperator.php manually and add the new code lines (ezurloperator is located in kernel/common)
 
+2) Logged in User
+
+NOTE: this will be obsolete when you use eZ version 4.5
+		- http://issues.ez.no/IssueView.php?Id=17668
+	
+run the patchfile located it extension/xrowforum/doc/install/patch/017668_logged_in_list_44_regression.diff
 
 III. Activate the Extension:
 ===========================
