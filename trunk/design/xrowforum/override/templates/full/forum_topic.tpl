@@ -272,6 +272,9 @@
                                 <input type="hidden" name="ContentLanguageCode" value="{$node.object.current_language}" />                         
                             </form>
                         {/if}
+                        {if $current_user.is_logged_in}
+                        	<input class="button" type="button" onclick="report_abuse('{$node.node_id}')" value="{'Report abuse'|i18n( 'extension/xrowforum' )}" />
+                        {/if}
                     </p>
                     <div class="content_block">
                     <p>
@@ -399,6 +402,9 @@
                                 <input type="hidden" name="ClassIdentifier" value="forum_reply" />
                                 <input type="hidden" name="ContentLanguageCode" value="{$node.object.current_language}" />                         
                             </form>
+                        {/if}
+                        {if $current_user.is_logged_in}
+                        	<input class="button" type="button" onclick="report_abuse('{$reply.node_id}')" value="{'Report abuse'|i18n( 'extension/xrowforum' )}" />
                         {/if}
                     </p>
                     <a id="msg{$reply.node_id}"></a>

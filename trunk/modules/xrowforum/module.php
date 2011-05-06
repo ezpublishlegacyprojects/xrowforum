@@ -35,6 +35,10 @@ $ViewList['create'] = array( 'functions' => array( 'create' ),
 $ViewList['close'] = array( 'functions' => array( 'close' ),
                         'script' => 'close.php',
                         'params' => array( 'NodeID' ) );
+						
+$ViewList['report'] = array( 'functions' => array( 'report' ),
+                        'script' => 'report.php',
+                        'params' => array( 'NodeID' ) );
 
 $FunctionList = array();
 $FunctionList['settings'] = array( );
@@ -44,5 +48,6 @@ $FunctionList['permissions'] = array( );
 $FunctionList['ranks'] = array( );
 $FunctionList['create'] = array( );
 $FunctionList['close'] = array( );
+$FunctionList['report'] = array( );
 
 ?>

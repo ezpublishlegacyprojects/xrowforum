@@ -8,7 +8,7 @@ I. Filesystem:
 
 Download the xrowForum extension and unpack it into your extensions folder (ezpublish-root/extension/. )
 
-II. Filesystem-Patch:
+II. Filesystem-Patches:
 =====================
 
 1) Cookie Patch
@@ -38,6 +38,7 @@ ActiveExtensions[]=xrowforum
 #[DesignSettings]
 #SiteDesign=xrowforum
 #or use your own design extension and overwrite our new templates so that u dont make changes in the xrowforum extension(recommanded)
+# AND DONT FORGET THE JS / CSS FILES! :-)
 
 IV. Database:
 ==============
@@ -161,6 +162,7 @@ X. Configuration:
         - "xrowforum/overview" (displays the statistic page)
         - "xrowforum/create" (allows to reply on forum topics)
         - "xrowforum/removeflag" (allows to remove ALL flags for a certain user)
+        - "xrowforum/report" (allows to report a rule violation) 
 		- "pm/*" (allows your user to use the whole PM module)
   
   6) Edit the Anonymous Usergroup and add "Content - Read - Section (Users)" permissions (required for birthdays)
