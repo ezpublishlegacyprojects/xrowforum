@@ -44,7 +44,8 @@ class flagAfterPublishType extends eZWorkflowEventType
         {
         	if ($parent_dm["closed"]->content() == 1)
         	{
-                $obj[0]->remove();
+             	$del_obj = eZContentObject::fetch($objectID);
+				$del_obj->remove();
                 $http = eZHTTPTool::instance();
                 $http->setPostVariable( 'RedirectURIERROR', true );
         	}
