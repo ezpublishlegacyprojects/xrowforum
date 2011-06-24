@@ -176,17 +176,19 @@ class eZBirthdayType extends eZDataType
     function objectAttributeContent( $contentObjectAttribute )
     {
         $dateStr = $contentObjectAttribute->attribute( 'data_text' );
-        if ( ereg( "([0-9]{4})-([0-9]{2})-([0-9]{2})", $dateStr, $valueArray ) )
+        $birthday = new eZBirthday();
+        
+        if( preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/', $dateStr, $valueArray ) )
         {
-            $year = $valueArray[1];
-            $month =  $valueArray[2];
-            $day = $valueArray[3] ;
-            $birthday = new eZBirthday( array ("year" => $year, "month" => $month, "day" => $day ) );
+            $dateArray = explode( '-', $valueArray[0] );
+            if ( checkdate( (int)$dateArray[1], (int)$dateArray[2], (int)$dateArray[0] ) )
+            {
+                $birthday = new eZBirthday( array( "year" => $dateArray[0], "month" => $dateArray[1], "day" => $dateArray[2] ) );
+            }
         }
-        else
-            $birthday = new eZBirthday();
         return $birthday;
     }
+
 
     /*!
      Set class attribute value for template version
