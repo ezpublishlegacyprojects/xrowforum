@@ -69,17 +69,26 @@ if( $http->hasPostVariable( "switch_pref" ))
 {
 	if ($pref == 1)
 	{
-		$db->begin();
-		$db->arrayQuery("UPDATE ezpreferences SET value = 'false' WHERE name = 'pm_email_notification' and user_id = $current_user_id;");
-		$db->commit();
+		eZPreferences::setValue("pm_email_notification", "false", $current_user->ContentObjectID);
 	}
 	else
 	{
-		$db->begin();
-		$db->arrayQuery("UPDATE ezpreferences SET value = 'true' WHERE name = 'pm_email_notification' and user_id = $current_user_id;");
-		$db->commit();
+		eZPreferences::setValue("pm_email_notification", "true", $current_user->ContentObjectID);
 	}
 }
+
+//notification check - preselect
+$user_note_state = $db->arrayQuery("SELECT * FROM ezpreferences where name = 'pm_email_notification' AND user_id = $current_user_id;");
+if ($user_note_state[0]['value'] == 'true')
+{
+	$pref = 1;
+}
+else
+{
+	$pref = 0;
+}
+$tpl->setVariable( 'pref', $pref );
+
 
 if($total_msg[0]['count'] >= 1)
 {
