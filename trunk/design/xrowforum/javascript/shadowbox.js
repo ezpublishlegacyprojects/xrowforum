@@ -40,8 +40,8 @@ function report_abuse(id) {
         content:    content,
         player:     "html",
         title:      "Report abuse",
-        height:     270,
-        width:      500,
+        height:     600,
+        width:      800,
         options: { enableKeys: false }
     });
 };

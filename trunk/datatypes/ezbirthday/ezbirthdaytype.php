@@ -1,7 +1,5 @@
-﻿<?php
+<?php
 
-#include_once( 'kernel/classes/ezdatatype.php' );
-#include_once( 'extension/birthday/datatypes/ezbirthday/ezbirthday.php' );
 require_once( 'kernel/common/i18n.php' );
 
 class eZBirthdayType extends eZDataType
