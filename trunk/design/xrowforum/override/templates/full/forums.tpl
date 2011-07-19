@@ -30,13 +30,11 @@
 <div class="content-view-full">
     <div class="class-forums">
         <div class="attribute-header">
-            <h1>
-                {if and(is_set($other_param),$other_param|eq('line'))}
-                    <a href={$node.url_alias|ezurl()}>{$node.name|wash()}</a>
-                {else}
-                    {$node.name|wash()}
-                {/if}
-            </h1>
+			{if and(is_set($other_param),$other_param|eq('line'))}
+				<h2><a href={$node.url_alias|ezurl()}>{$node.name|wash()}</a></h2>
+			{else}
+				<h1>{$node.name|wash()}</h1>
+			{/if}
         </div>
 
         {if $node.object.data_map.description.has_content}
