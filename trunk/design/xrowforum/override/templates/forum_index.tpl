@@ -4,7 +4,8 @@
 {def $page_limit = 10
      $children = array()
      $children_count = ''
-     $current_user=fetch( 'user', 'current_user' )}
+     $current_user=fetch( 'user', 'current_user' )
+	 $exclude_classes = array()}
 
 <div class="border-box">
 <div class="border-tl"><div class="border-tr"><div class="border-tc"></div></div></div>
@@ -46,11 +47,11 @@
                                                       'offset', $view_parameters.offset,
                                                       'sort_by', $node.sort_array,
                                                       'class_filter_type', 'exclude',
-                                                      'class_filter_array', $classes,
+                                                      'class_filter_array', $exclude_classes,
                                                       'limit', $page_limit ) )
              $children_count=fetch_alias( 'children_count', hash( 'parent_node_id', $node.node_id,
                                                                   'class_filter_type', 'exclude',
-                                                                  'class_filter_array', $classes ) )}
+                                                                  'class_filter_array', $exclude_classes ) )}
     
         <div class="content-view-children">
             {foreach $children as $child }
