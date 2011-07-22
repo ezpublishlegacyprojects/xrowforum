@@ -46,7 +46,7 @@
 				<h1>{'Outbox'|i18n('extension/xrowpm')}</h1>
 		    </div>
 			<div class="block">
-				<a href="/pm/create">{'new Message'|i18n('extension/xrowpm')}</a> {if $search_on|eq('true')} / <a href="/pm/outbox">{'see all'|i18n('extension/xrowpm')}</a>{/if}
+				<a href={"/pm/create"|ezurl()}>{'new Message'|i18n('extension/xrowpm')}</a> {if $search_on|eq('true')} / <a href={"/pm/outbox"|ezurl()}>{'see all'|i18n('extension/xrowpm')}</a>{/if}
 			</div>
 			{if $total_msg|gt(0)}
 				{def $recipient = ""}
@@ -72,7 +72,7 @@
 								{set $recipient = fetch( 'content', 'object', hash( 'object_id', $mail.recipient ) )}
 								<td><input type="checkbox" name="DeleteIDArray[]" value="{$mail.msg_id}" title="{'Select the checkbox to remove the message'|i18n( 'extension/xrowpm' )}" /></td>
 								<td><a href={$recipient.main_node.url_alias|ezurl()}>{$recipient.name|wash()}</a></td>
-								<td><a href="/pm/view/{$mail.msg_id}">{$mail.pm_subject|wash()}</a></td>
+								<td><a href={concat("/pm/view/", $mail.msg_id)|ezurl()}>{$mail.pm_subject|wash()}</a></td>
 								<td>{$mail.send_date|l10n( 'shortdatetime' )}</td>
 								<td>
 									{if $mail.read_state|eq(1)}

@@ -92,7 +92,7 @@
 							{set $user = fetch( 'content', 'object', hash( 'object_id', $request.user1 ) )
 								 $user_state = fetch( 'user', 'is_logged_in', hash( 'user_id', $request.user1 ) )}
 							<td><a href={$user.main_node.url_alias|ezurl()}>{$user.name|wash()}</a></td>
-							<td><a href="{concat("/pm/create/", $request.user1)}">{'send PM'|i18n('extension/xrowpm')}</a></td>
+							<td><a href={concat("/pm/create/", $request.user1)|ezurl()}>{'send PM'|i18n('extension/xrowpm')}</a></td>
 							<td>
 								{if $user_state}
 									<p style="color:green">{'online'|i18n('extension/xrowpm')}</p>
@@ -133,7 +133,7 @@
 							{set $user_state = fetch( 'user', 'is_logged_in', hash( 'user_id', $friend_id ) )
 								 $user = fetch( 'content', 'object', hash( 'object_id', $friend_id ) )}
 							<td><a href={$user.main_node.url_alias|ezurl()}>{$user.name|wash()}</a></td>
-							<td><a href="{concat("/pm/create/", $friend_id)}">{'send PM'|i18n('extension/xrowpm')}</a></td>
+							<td><a href={concat("/pm/create/", $friend_id)|ezurl()}>{'send PM'|i18n('extension/xrowpm')}</a></td>
 							<td>
 								{if $user_state}
 									<p style="color:green">{'online'|i18n('extension/xrowpm')}</p>

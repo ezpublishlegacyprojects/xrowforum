@@ -7,7 +7,7 @@
 	<ul class="menu-list">
 		<li>
 			<div class="second_level_menu">
-				<a href="/pm/inbox">
+				<a href={"/pm/inbox"|ezurl()}>
 					{'Inbox'|i18n('extension/xrowpm')}
 					{if $new_msg|gt(0)}
 						(<strong>{$new_msg}</strong>/{pm_message_check("inbox", 1)})
@@ -19,7 +19,7 @@
 		</li>
 		<li>
 			<div class="second_level_menu">
-				<a href="/pm/outbox">
+				<a href={"/pm/outbox"|ezurl()}>
 					{'Sentbox'|i18n('extension/xrowpm')}
 					({pm_message_check("outbox", "")})
 				</a>
@@ -27,7 +27,7 @@
 		</li>
 		<li>
 			<div class="second_level_menu">
-				<a href="/pm/network">{'my Network'|i18n('extension/xrowpm')}
+				<a href={"/pm/network"|ezurl()}>{'my Network'|i18n('extension/xrowpm')}
 					{if and($requests|gt(1), $friends_on|gt(0))}
 						<strong>{$requests} {'requests'|i18n('extension/xrowpm')} / {$friends_on} {'online'|i18n('extension/xrowpm')} </strong>
 					{elseif and($requests|eq(1), $friends_on|gt(0))}
@@ -42,6 +42,6 @@
 				</a>
 			</div>
 		</li>
-		<li><div class="second_level_menu"><a href="/pm/create">{'New Message'|i18n('extension/xrowpm')}</a></div></li>
+		<li><div class="second_level_menu"><a href={"/pm/create"|ezurl()}>{'New Message'|i18n('extension/xrowpm')}</a></div></li>
 	</ul>
 </div>

@@ -84,13 +84,13 @@
 					{if $message.0.read_state|eq(0)}
 						{pm_mark_as_read($message.0.msg_id, $message.0.sender, $message.0.recipient, $message.0.send_date )}
 					{/if}
-					| <a href="/pm/inbox">{'back'|i18n('extension/xrowpm')}</a>
+					| <a href={"/pm/inbox"|ezurl()}>{'back'|i18n('extension/xrowpm')}</a>
 				{else}
 					<form name="pm_list" action={concat("/pm/modify/remove/", $message.0.msg_id, "/outbox")|ezurl} method="post">
 						<input type="hidden" name="DeleteIDArray[]" value="{$message.0.msg_id}" />
 						<input class="defaultbutton" type="submit" name="DeleteButton" value="{'delete message'|i18n('extension/xrowpm')}" />
 					</form>
-					| <a href="/pm/outbox">{'back'|i18n('extension/xrowpm')}</a>
+					| <a href={"/pm/outbox"|ezurl()}>{'back'|i18n('extension/xrowpm')}</a>
 				{/if}
 				
 			</div>
