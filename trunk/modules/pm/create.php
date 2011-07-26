@@ -229,7 +229,10 @@ else
 
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/create.tpl' );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'PM - create new message' ) ) );
+$Result['path'] = array( array( 'url' => "/",
+                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+							array( 
+								'url' => false,
+                                'text' => ezi18n( 'extension/xrowpm', 'New message' ) ) );
 								
 ?>

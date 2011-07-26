@@ -28,7 +28,11 @@ else
 
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/view_pm.tpl' );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'PM - view message' ) ) );
+$Result['path'] = array( array( 'url' => "/",
+                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+						 array( 'url' => "/pm/inbox",
+                                'text' => ezi18n( 'extension/dropcalc', 'Inbox' ) ),
+						 array( 'url' => false,
+                                'text' => ezi18n( 'extension/xrowpm', 'view message' ) ) );
     
 ?>

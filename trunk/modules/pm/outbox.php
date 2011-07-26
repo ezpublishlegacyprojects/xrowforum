@@ -81,7 +81,9 @@ $tpl->setVariable( 'view_parameters', $view_parameters );
 
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/outbox.tpl' );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'PM - Outbox' ) ) );
+$Result['path'] = array( array( 'url' => "/",
+                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+						 array( 'url' => false,
+                                'text' => ezi18n( 'extension/xrowpm', 'Outbox' ) ) );
     
 ?>

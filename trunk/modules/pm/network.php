@@ -401,7 +401,9 @@ $tpl->setVariable( 'block_list', $block_list );
 
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/network.tpl' );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'PM - My Network' ) ) );
+$Result['path'] = array( array( 'url' => "/",
+                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+						 array( 'url' => false,
+                                'text' => ezi18n( 'extension/xrowpm', 'My Network' ) ) );
     
 ?>

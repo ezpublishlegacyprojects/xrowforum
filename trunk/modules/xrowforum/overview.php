@@ -104,7 +104,9 @@ else
 $Result = array();
 $Result['left_menu'] = "design:admin/menu.tpl";
 $Result['content'] = $tpl->fetch( "design:admin/overview.tpl" );
-$Result['path'] = array( array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowforum', 'xrowForum overview' ) ) );
+$Result['path'] = array( array( 'url' => "/",
+                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+						array( 'url' => false,
+                                'text' => ezi18n( 'extension/xrowforum', 'Statistics' ) ) );
     
 ?>
