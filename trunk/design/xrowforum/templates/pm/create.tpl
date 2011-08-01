@@ -333,8 +333,8 @@ $(document).ready(function(){
 							<li><a href="javascript:emoticon(':o')"><img id="omg_smiley" src={"smilies/omg.gif"|ezimage()} alt="oha" title="oha" /></a></li>
 							<li><a href="javascript:emoticon(':-/')"><img id="suspicious_smiley" src={"smilies/suspicious.gif"|ezimage()} alt="suspicious" title="suspicious" /></a></li>
 							<li><a href="javascript:emoticon(':D')"><img id="big-smile_smiley" src={"smilies/big-smile.gif"|ezimage()} alt="happy" title="happy" /></a></li>
-							<li><a href="javascript:emoticon(':)')"><img id="sad_smiley" src={"smilies/sad.gif"|ezimage()} alt="sad" title="sad" /></a></li>
-							<li><a href="javascript:emoticon(':(')"><img id="happy_smiley" src={"smilies/happy.gif"|ezimage()} alt="happy" title="happy" /></a></li>
+							<li><a href="javascript:emoticon(':(')"><img id="sad_smiley" src={"smilies/sad.gif"|ezimage()} alt="sad" title="sad" /></a></li>
+							<li><a href="javascript:emoticon(':)')"><img id="happy_smiley" src={"smilies/happy.gif"|ezimage()} alt="happy" title="happy" /></a></li>
 						</ul>
 					</div>
 				{/if}
