@@ -131,13 +131,17 @@
                             <input class="button forum-new-reply" type="submit" name="NewButton" value="{'New reply'|i18n( 'extension/xrowforum' )}" />
                             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
                             <input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
-                            {if $notification_access}
-                                <input class="button forum-keep-me-updated" type="submit" name="ActionAddToNotification" value="{'Keep me updated'|i18n( 'extension/xrowforum' )}" />
-                            {/if}
                             <input type="hidden" name="NodeID" value="{$node.node_id}" />
                             <input type="hidden" name="ClassIdentifier" value="forum_reply" />
                             <input type="hidden" name="ContentLanguageCode" value="{ezini( 'RegionalSettings', 'ContentObjectLocale', 'site.ini')}" />
                         </form>
+                        {if $notification_access}
+                       		<form method="post" action={"content/action/"|ezurl}>
+                        		<input class="button forum-keep-me-updated" type="submit" name="ActionAddToNotification" value="{'Keep me updated'|i18n( 'extension/xrowforum' )}" />
+                        		<input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+								<input type="hidden" name="ContentObjectID" value="{$node.contentobject_id}" />
+                        	</form>
+                        {/if}
                     {else}
                        <p>
                         {"You need to be logged in to get access to the forums. You can do so %login_link_start%here%login_link_end%"|i18n( "extension/xrowforum",,
