@@ -51,6 +51,22 @@ class OperatorMerge
                     {
                         array_push($op_array, "wordtoimage");
                     }
+					 array_push($op_array, "nl2br");
+            	}
+				if( $type == "preview" )
+            	{
+                    foreach ($BBCodeList as $BBitem)
+                    {
+                        if ($BBitem == 'enabled')
+                        {
+                            array_push($op_array, "bbcode2xhtml");
+                            break 1;
+                        }
+                    }
+            	    if($WordToImage == 'enabled')
+                    {
+                        array_push($op_array, "wordtoimage");
+                    }
             	}
                 elseif( $type == "signature" )
                 {
@@ -63,8 +79,8 @@ class OperatorMerge
                     {
                         array_push($op_array, "wordtoimage");
                     }
+					 array_push($op_array, "nl2br");
                 }
-                array_push($op_array, "nl2br");
                 $tpl->setVariable( 'types', $op_array );
                 $content = $namedParameters['content'];
             	$tpl->setVariable( 'content', $content );
