@@ -236,7 +236,7 @@
                     {/if}
                     {if $owner.id|ne($current_user.contentobject_id)}
 						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
-							<form action={concat('/pm/create/', $owner.id )|ezurl()}" method="post" >
+							<form action={concat('/pm/create/', $owner.id )|ezurl()} method="post" >
 								<input class="defaultbutton" type="submit" name="ReplyButton" value="{'send PM'|i18n('extension/xrowpm')}" />
 							</form>
 						{/if}
@@ -367,7 +367,7 @@
                     {/if}
                     {if $owner.id|ne($current_user.contentobject_id)}
 						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
-							<form action={concat('/pm/create/', $owner.id )|ezurl()}" method="post" >
+							<form action={concat('/pm/create/', $owner.id )|ezurl()} method="post" >
 								<input class="defaultbutton" type="submit" name="ReplyButton" value="{'send PM'|i18n('extension/xrowpm')}" />
 							</form>
 						{/if}
