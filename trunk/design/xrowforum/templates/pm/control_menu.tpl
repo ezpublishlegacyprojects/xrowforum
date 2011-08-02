@@ -27,7 +27,7 @@
 		</li>
 		<li>
 			<div class="second_level_menu">
-				<a href={"/pm/network"|ezurl()}>{'my Network'|i18n('extension/xrowpm')}
+				<a href={"pm/network"|ezurl()}>{'my Network'|i18n('extension/xrowpm')}
 					{if and($requests|gt(1), $friends_on|gt(0))}
 						<strong>{$requests} {'requests'|i18n('extension/xrowpm')} / {$friends_on} {'online'|i18n('extension/xrowpm')} </strong>
 					{elseif and($requests|eq(1), $friends_on|gt(0))}

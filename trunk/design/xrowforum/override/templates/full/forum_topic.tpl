@@ -245,14 +245,14 @@
 								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 0)),
 								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))
 							    )}
-							<form action="/pm/network" method="post">
+							<form action={"pm/network"|ezurl()} method="post">
 								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
 								<input class="box" type="hidden" name="action_type" value="0" />						
 								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'friendship request'|i18n('extension/xrowpm')}" />
 							</form>
 						{/if}
 						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
-							<form action="/pm/network" method="post">
+							<form action={"pm/network"|ezurl()} method="post">
 								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
 								<input class="box" type="hidden" name="action_type" value="1" />	
 								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'block user'|i18n('extension/xrowpm')}" />
@@ -376,14 +376,14 @@
 								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 0)),
 								not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))
 							    )}
-							<form action="/pm/network" method="post">
+							<form action={"pm/network"|ezurl()} method="post">
 								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
 								<input class="box" type="hidden" name="action_type" value="0" />						
 								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'friendship request'|i18n('extension/xrowpm')}" />
 							</form>
 						{/if}
 						{if not(pm_is_inRelation( $current_user.contentobject_id, $owner.id, 2))}
-							<form action="/pm/network" method="post">
+							<form action={"pm/network"|ezurl()} method="post">
 								<input class="box" type="hidden" name="recipient_name" value="{$owner.name|wash()}" />
 								<input class="box" type="hidden" name="action_type" value="1" />	
 								<input class="defaultbutton" type="submit" name="NetworkActionButton" value="{'block user'|i18n('extension/xrowpm')}" />

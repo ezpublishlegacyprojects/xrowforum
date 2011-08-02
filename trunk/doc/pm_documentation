@@ -22,32 +22,32 @@ Table: `xrowforum_pm_network`:
 *Friend add options:
 
 	1) URL:
-		/pm/network/0/$userID
+		siteaccess/pm/network/0/$userID
 		
 	2) Form
-		<form action="/pm/network" method="post">
+		<form action={"pm/network"|ezurl()} method="post">
 		<input class="box" name="recipient_name" value="$username" type="hidden">
 		<input class="box" name="action_type" value="0" type="hidden">	
 		<input class="defaultbutton" name="NetworkActionButton" value="block user" type="submit">
 		</form>
 
 	3) Default
-		Useof the default form in /pm/network  
+		Useof the default form in siteaccess/pm/network  
 
 * Block add options:
 
 	1) URL
-		/pm/network/1/$userID
+		siteaccess/pm/network/1/$userID
 
 	2) Form
-		<form action="/pm/network" method="post">
+		<form action={"pm/network"|ezurl()} method="post">
 		<input class="box" name="recipient_name" value="$username" type="hidden">
 		<input class="box" name="action_type" value="1" type="hidden">	
 		<input class="defaultbutton" name="NetworkActionButton" value="block user" type="submit">
 		</form>
 
 	3) Default
-		Useof the default form in /pm/network
+		Useof the default form in siteaccess/pm/network
 
 * Create PM options:
 
@@ -56,7 +56,7 @@ Table: `xrowforum_pm_network`:
 		jump into the create view only:  /pm/create
 	
 	2)	Form
-		<form action="/pm/network" method="post">
+		<form action={"pm/network"|ezurl()} method="post">
 		<input class="box" name="recipient_name" value="$username" type="hidden">
 		<input class="box" name="action_type" value="1" type="hidden">	
 		<input class="defaultbutton" name="NetworkActionButton" value="block user" type="submit">
