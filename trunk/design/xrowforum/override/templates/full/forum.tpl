@@ -33,7 +33,7 @@
 {set-block variable=$paginator_and_create}
     {include name=navigator
          uri='design:navigator/google.tpl'
-         page_uri=concat('/content/view','/full/',$node.node_id)
+         page_uri=$node.url_alias
          item_count=$topic_count
          view_parameters=$view_parameters
          item_limit=$page_limit}
