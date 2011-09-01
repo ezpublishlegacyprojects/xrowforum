@@ -197,6 +197,8 @@ function storeCaret(textEl) {
     <div class="class-forum-reply">
                 <form enctype="multipart/form-data" method="post" action={concat( "/content/edit/", $object.id, "/", $edit_version, "/", $edit_language|not|choose( concat( $edit_language, "/" ), '' ) )|ezurl}>
                     
+					<h1>{"Edit %1 - %2"|i18n("extension/xrowforum",,array($class.name|wash,$object.name|wash))}</h1>
+					
                     {include uri="design:content/edit_validation.tpl"}
                     <input type="hidden" name="MainNodeID" value="{$main_node_id}" />
                     
