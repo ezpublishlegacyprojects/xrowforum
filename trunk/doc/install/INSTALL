@@ -33,12 +33,16 @@ Enable the extension in eZ Publish (settings/override/site.ini.append.php)
 [ExtensionSettings]
 ActiveExtensions[]=xrowforum
 
-#additional:
-#edit the site.ini.append.php for your siteaccess and add xrowforum as sitedesign
+additional:
+edit the site.ini.append.php for your siteaccess and add xrowforum as sitedesign or additionalsitedesign
+
 #[DesignSettings]
 #SiteDesign=xrowforum
-#or use your own design extension and overwrite our new templates so that u dont make changes in the xrowforum extension(recommanded)
-# AND DONT FORGET THE JS / CSS FILES! :-)
+or
+#AdditionalSiteDesignList=xrowforum
+
+or use your own design extension and overwrite our new templates so that u dont make changes in the xrowforum extension(recommanded)
+ AND DONT FORGET THE JS / CSS FILES! :-)
 
 IV. Database:
 ==============
