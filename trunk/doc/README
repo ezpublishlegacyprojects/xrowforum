@@ -127,6 +127,7 @@ NOTE: !!!!read the install/INSTALL file for the installation and configuration o
         - ezhttp option "cookie" added as kernel hack (will be added to kernel from eZ in 4.4)
         - complete german/english translation delivered
         - proper redirects after publishing/discarding or editing
+		- censoring added to replace bad with good words
             
 3. Known Issues:
 ================

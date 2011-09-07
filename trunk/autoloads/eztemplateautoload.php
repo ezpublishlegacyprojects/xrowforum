@@ -41,5 +41,9 @@ $eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/p
 $eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/pm_relationcheck.php',
                                     'class' => 'PmRelationCheck',
                                     'operator_names' => array( 'pm_is_inRelation', 'pm_relation_fetch' ) );
+									
+$eZTemplateOperatorArray[] = array( 'script' => 'extension/xrowforum/autoloads/censoring.php',
+                                    'class' => 'Censoring',
+                                    'operator_names' => array( 'censoring' ) );
 
 ?>   

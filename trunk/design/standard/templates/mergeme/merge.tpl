@@ -19,6 +19,9 @@
         {case match='nl2br'}
             {set $result=$result|nl2br()}
         {/case}
+		{case match='censoring'}
+            {set $result=$result|censoring(xhtml)}
+        {/case}
         {case match='wash'}
             {set $result=$result|wash(xhtml)}
         {/case}

@@ -74,6 +74,14 @@ if( $http->hasPostVariable( "save_general_settings" ))
 	{
 		$xrowForumINI->setVariable( 'GeneralSettings', 'WordToImage', 'disabled' );
 	}
+	if($http->haspostVariable( "checkbox_censoring" ))
+	{
+		$xrowForumINI->setVariable( 'GeneralSettings', 'Censoring', 'enabled' );
+	}
+	else
+	{
+		$xrowForumINI->setVariable( 'GeneralSettings', 'Censoring', 'disabled' );
+	}
     if (is_numeric($http->postVariable( "HotTopicNumber" )) AND trim( $http->postVariable( "HotTopicNumber" ) ) != "")
     {
         $xrowForumINI->setVariable( 'GeneralSettings', 'HotTopicNumber', $http->postVariable( "HotTopicNumber" ) );
@@ -210,6 +218,7 @@ $user_class = $xrowForumINI->variable( 'ClassIDs', 'User' );
 $topic_class = $xrowForumINI->variable( 'ClassIDs', 'ForumTopic' );
 $reply_class = $xrowForumINI->variable( 'ClassIDs', 'ForumReply' );
 $Rankings = $xrowForumINI->variable( 'GeneralSettings', 'Rankings' );
+$Censoring = $xrowForumINI->variable( 'GeneralSettings', 'Censoring' );
 $wordtoimage = $xrowForumINI->variable( 'GeneralSettings', 'WordToImage' );
 $HotTopicNumber = $xrowForumINI->variable( 'GeneralSettings', 'HotTopicNumber' );
 $PostsPerPage = $xrowForumINI->variable( 'GeneralSettings', 'PostsPerPage' );
@@ -243,6 +252,7 @@ $tpl->setVariable( 'topic_class', $topic_class );
 $tpl->setVariable( 'reply_class', $reply_class );
 $tpl->setVariable( 'user_class', $user_class );
 $tpl->setVariable( 'ranking', $Rankings );
+$tpl->setVariable( 'censoring', $Censoring );
 $tpl->setVariable( 'wordtoimage', $wordtoimage );
 $tpl->setVariable( 'HotTopicNumber', $HotTopicNumber );
 $tpl->setVariable( 'PostsPerPage', $PostsPerPage );

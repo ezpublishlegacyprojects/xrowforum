@@ -19,6 +19,8 @@ ModeratorGroupObjectID=
 Rankings=enabled
 #disabled deactivates the wordtoimage.ini
 WordToImage=enabled
+#set either to enabled or disabled to de or activate the censoring
+Censoring=enabled
 #allows images in the signature(either disabled or enabled)
 SignatureImage=enable
 #amount of maximum digets for the signature
@@ -73,5 +75,11 @@ AllowSendingNotificationMails=true
 PmsPerPage=10
 SelectableUserPathString[]
 SelectableUserPathString[]=/1/5/12
+
+[Censoring]
+#CensoringList[badword]=goodword
+CensoringList[]
+CensoringList[fuck]=f**k
+CensoringList[shit]=s**t
 
 */ ?>

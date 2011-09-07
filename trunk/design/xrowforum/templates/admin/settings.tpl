@@ -94,6 +94,12 @@
                         <input value="enabled" name="checkbox_wti" type="checkbox"{if $wordtoimage|eq('enabled')}checked="checked"{/if} />
                     </td>
                 </tr>
+				<tr>
+                    <td>{'activate'|i18n('extension/xrowforum')} Censoring</td>
+                    <td>
+                        <input value="enabled" name="checkbox_censoring" type="checkbox"{if $censoring|eq('enabled')}checked="checked"{/if} />
+                    </td>
+                </tr>
                 <tr>
                     <td>HotTopics</td>
                     <td><input name="HotTopicNumber" type="text" value="{$HotTopicNumber}" /> (set value to 0 to deactivate hottopics)</td>
@@ -156,7 +162,6 @@
                     <p>{'private messaging settings'|i18n( 'extension/xrowforum' )}</p>
                 </div>
             </div>
-            
             
              <table class="list">
                 <thead>

@@ -35,6 +35,7 @@ class OperatorMerge
             	$xrowForumINI = eZINI::instance( 'xrowforum.ini' );
                 $BBCodeList = $xrowForumINI->variable( 'BB-Codes', 'BBCodeList' );
                 $WordToImage = $xrowForumINI->variable( 'GeneralSettings', 'WordToImage' );
+				$censoring = $xrowForumINI->variable( 'GeneralSettings', 'Censoring' );
                 $op_array = array();
             	$type = $namedParameters['type'];
             	if( $type == "content" )
@@ -51,7 +52,11 @@ class OperatorMerge
                     {
                         array_push($op_array, "wordtoimage");
                     }
-					 array_push($op_array, "nl2br");
+					if($censoring == 'enabled')
+                    {
+                        array_push($op_array, "censoring");
+                    }
+					array_push($op_array, "nl2br");
             	}
 				if( $type == "preview" )
             	{
@@ -67,6 +72,10 @@ class OperatorMerge
                     {
                         array_push($op_array, "wordtoimage");
                     }
+					if($censoring == 'enabled')
+                    {
+                        array_push($op_array, "censoring");
+                    }
             	}
                 elseif( $type == "signature" )
                 {
@@ -79,7 +88,11 @@ class OperatorMerge
                     {
                         array_push($op_array, "wordtoimage");
                     }
-					 array_push($op_array, "nl2br");
+					if($censoring == 'enabled')
+                    {
+                        array_push($op_array, "censoring");
+                    }
+					array_push($op_array, "nl2br");
                 }
                 $tpl->setVariable( 'types', $op_array );
                 $content = $namedParameters['content'];
