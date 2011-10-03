@@ -95,7 +95,7 @@
                             <a href={$topic.object.owner.main_node.url_alias|ezurl()}>{$topic.object.owner.name|wash()}</a>
                         {/foreach}
                         {if and(is_set($other_param),$other_param|eq('line'))}
-                            <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={concat('content/view/full/', $forum_id)|ezurl()}>
+                            <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={$node.parent.url_alias|ezurl()}>
                         {else}
                             <form name="form_{$child.node_id}" id="form_{$child.node_id}" method="post" action={$node.url_alias|ezurl()}>
                         {/if}
