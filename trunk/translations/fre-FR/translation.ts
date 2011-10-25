@@ -3,235 +3,235 @@
     <name>design/ezwebin/content/edit_attribute</name>
     <message>
         <source>Not translatable</source>
-        <translation type="unfinished"></translation>
+        <translation>Non traduisible</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">benötigt</translation>
+        <translation>Requis</translation>
     </message>
     <message>
         <source>Information collector</source>
-        <translation type="unfinished">Informationsammler</translation>
+        <translation>Collecteur d'information</translation>
     </message>
 </context>
 <context>
     <name>design/ezwebin/user/register</name>
     <message>
         <source>Register user</source>
-        <translation type="unfinished"></translation>
+        <translation>Inscription</translation>
     </message>
     <message>
         <source>Input did not validate</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrée non validée</translation>
     </message>
     <message>
         <source>Input was stored successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrée enregistrée avec succès</translation>
     </message>
     <message>
         <source>Register</source>
-        <translation type="unfinished"></translation>
+        <translation>Inscription</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation type="unfinished">Verwerfen</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Unable to register new user</source>
-        <translation type="unfinished"></translation>
+        <translation>Inscription d'un nouvel utilisateur impossible</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Retour</translation>
     </message>
 </context>
 <context>
     <name>design/standard/class/datatype</name>
     <message>
         <source>Default value</source>
-        <translation type="unfinished"></translation>
+        <translation>Valeur par défaut</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Vide</translation>
     </message>
     <message>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date courante</translation>
     </message>
 </context>
 <context>
     <name>design/standard/content/datatype</name>
     <message>
         <source>Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Année</translation>
     </message>
     <message>
         <source>Please enter the year</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez saisir l'année</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Mois</translation>
     </message>
     <message>
         <source>Please enter the month</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez saisir le mois</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"></translation>
+        <translation>Jour</translation>
     </message>
     <message>
         <source>Please enter the day</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez saisir le jour</translation>
     </message>
 </context>
 <context>
     <name>extension/xrowforum</name>
     <message>
         <source>Required</source>
-        <translation>benötigt</translation>
+        <translation>Requis</translation>
     </message>
     <message>
         <source>Information collector</source>
-        <translation>Informationsammler</translation>
+        <translation>Collecteur d'information</translation>
     </message>
     <message>
         <source>Send for publishing</source>
-        <translation>Abschicken</translation>
+        <translation>Envoyer pour publication</translation>
     </message>
     <message>
         <source>Discard</source>
-        <translation>Verwerfen</translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Edit %1 - %2</source>
-        <translation>Bearbeite %1 - %2</translation>
+        <translation>Edition %1 - %2</translation>
     </message>
     <message>
         <source>Subject</source>
-        <translation>Betreff</translation>
+        <translation>Sujet</translation>
     </message>
     <message>
         <source>Message</source>
-        <translation>Nachricht</translation>
+        <translation>Message</translation>
     </message>
     <message>
         <source>Notify me about updates</source>
-        <translation>Benachrichtige mich über Neuigkeiten</translation>
+        <translation>Me tenir informé des mises à jour</translation>
     </message>
     <message>
         <source>Sticky</source>
-        <translation>festgeheftet</translation>
+        <translation>Épinglé</translation>
     </message>
     <message>
         <source>Closed</source>
-        <translation>geschlossen</translation>
+        <translation>Fermé</translation>
     </message>
     <message>
         <source>Welcome</source>
-        <translation>Wilkommen</translation>
+        <translation>Bienvenue</translation>
     </message>
     <message>
         <source>Your last login was</source>
-        <translation>Dein letzter Besuch war am</translation>
+        <translation>Votre dernier login était</translation>
     </message>
     <message>
         <source>mark all forums as read</source>
-        <translation>Alle Foren als gelesen markieren</translation>
+        <translation>Marquer tous les forums comme lus</translation>
     </message>
     <message>
         <source>see forum statistics</source>
-        <translation>Forum Statistik anzeigen</translation>
+        <translation>Voir les statistiques du forum</translation>
     </message>
     <message>
         <source>New topic</source>
-        <translation>Neues Thema</translation>
+        <translation>Nouvelle discussion</translation>
     </message>
     <message>
         <source>Keep me updated</source>
-        <translation>Benachrichtige mich über Neuigkeiten</translation>
+        <translation>Me tenir informé</translation>
     </message>
     <message>
         <source>You need to be logged in to get access to the forums. You can do so %login_link_start%here%login_link_end%</source>
-        <translation>Du musst eingeloggt sein um Zugriff zu den Foren zu bekommen. Du kannst dies %login_link_start%hier%login_link_end%  machen</translation>
+        <translation>Vous devez être connecté pour accéder aux forums. Vous pouvez le faire %login_link_start%ici%login_link_end%.</translation>
     </message>
     <message>
         <source>Topic</source>
-        <translation>Themen</translation>
+        <translation>Discussion</translation>
     </message>
     <message>
         <source>Replies</source>
-        <translation>Antworten</translation>
+        <translation>Réponses</translation>
     </message>
     <message>
         <source>Views</source>
-        <translation>Zugriffe</translation>
+        <translation>Vues</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>Auteur</translation>
     </message>
     <message>
         <source>Last reply</source>
-        <translation>Letzte Antwort</translation>
+        <translation>Dernière réponse</translation>
     </message>
     <message>
         <source>Pages</source>
-        <translation>Seiten</translation>
+        <translation>Pages</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation>Fehler</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Previous topic</source>
-        <translation>vorheriges Thema</translation>
+        <translation>Discussion précédente</translation>
     </message>
     <message>
         <source>Next topic</source>
-        <translation>nächstens Thema</translation>
+        <translation>Discussion suivante</translation>
     </message>
     <message>
         <source>New reply</source>
-        <translation>Neue Antwort</translation>
+        <translation>Nouvelle réponse</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation>Herkunft</translation>
+        <translation>Emplacement</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation>editieren</translation>
+        <translation>Éditer</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>löschen</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Remove this item.</source>
-        <translation>lösche dieses Objekt.</translation>
+        <translation>Supprimer cet élément.</translation>
     </message>
     <message>
         <source>Move</source>
-        <translation>verschieben</translation>
+        <translation>Déplacer</translation>
     </message>
     <message>
         <source>Open</source>
-        <translation>öffnen</translation>
+        <translation>Ouvrir</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>schließen</translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Quote it</source>
-        <translation>zitieren</translation>
+        <translation>Citer</translation>
     </message>
     <message>
         <source>modified</source>
-        <translation>bearbeitet</translation>
+        <translation>modifié</translation>
     </message>
     <message>
         <source>Forum</source>
@@ -239,75 +239,75 @@
     </message>
     <message>
         <source>Topics</source>
-        <translation>Themen</translation>
+        <translation>Discussions</translation>
     </message>
     <message>
         <source>Posts</source>
-        <translation>Antworten</translation>
+        <translation>Messages</translation>
     </message>
     <message>
         <source>Module List</source>
-        <translation>Modul Liste</translation>
+        <translation>Liste des modules</translation>
     </message>
     <message>
         <source>xrowForum Interface</source>
-        <translation>xrowForum Benutzeroberfläche</translation>
+        <translation>Interface xrowForum</translation>
     </message>
     <message>
         <source>Moderator Permissions</source>
-        <translation>Moderatoren Berechtigungen</translation>
+        <translation>Permissions des modérateurs</translation>
     </message>
     <message>
         <source>Click on the icon to display a context-sensitive menu.</source>
-        <translation>Klicke auf das Bild um ein Inhaltsabhängiges Menü anzuzeigen.</translation>
+        <translation>Cliquer sur l'icône pour afficher le menu contextuel.</translation>
     </message>
     <message>
         <source>Edit &lt;%child_name&gt;.</source>
-        <translation>editiere &lt;%child_name&gt;.</translation>
+        <translation>Éditer &lt;%child_name&gt;.</translation>
     </message>
     <message>
         <source>Validation Error</source>
-        <translation>Validierungsfehler</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>User Ranks</source>
-        <translation>Benutzer Ränge</translation>
+        <translation>Rang de l'utilisateur</translation>
     </message>
     <message>
         <source>add a new rank</source>
-        <translation>neuen Rang hinzufügen</translation>
+        <translation>ajouter un nouveau rang</translation>
     </message>
     <message>
         <source>Rank Text</source>
-        <translation>Rang Text</translation>
+        <translation>Libellé du rang</translation>
     </message>
     <message>
         <source>Rank Category</source>
-        <translation>Rang Kategorie</translation>
+        <translation>Catégorie du rang</translation>
     </message>
     <message>
         <source>Rank Condition</source>
-        <translation>Rang Bedingung</translation>
+        <translation>Condition du rang</translation>
     </message>
     <message>
         <source>active</source>
-        <translation>aktiv</translation>
+        <translation>actif</translation>
     </message>
     <message>
         <source>Ranklist</source>
-        <translation>Rangliste</translation>
+        <translation>Liste des rangs</translation>
     </message>
     <message>
         <source>Forum Settings</source>
-        <translation>Forumeinstellungen</translation>
+        <translation>Paramètres du forum</translation>
     </message>
     <message>
         <source>id settings</source>
-        <translation>ID Einstellungen</translation>
+        <translation>Paramètres de l'id</translation>
     </message>
     <message>
         <source>general settings</source>
-        <translation>generelle Einstellungen</translation>
+        <translation>Paramètres généraux</translation>
     </message>
     <message>
         <source>BBCodes</source>
@@ -315,95 +315,95 @@
     </message>
     <message>
         <source>Validation errors</source>
-        <translation>Validierungsfehler</translation>
+        <translation>Erreurs de validation</translation>
     </message>
     <message>
         <source>Edit Forum reply</source>
-        <translation>bearbeiten Forum Antwort</translation>
+        <translation>Éditer la réponse</translation>
     </message>
     <message>
         <source>History</source>
-        <translation>Verlauf</translation>
+        <translation>Historique</translation>
     </message>
     <message>
         <source>origin Topic</source>
-        <translation>ursprüngliches Thema</translation>
+        <translation>Discussion d'origine</translation>
     </message>
     <message>
         <source>Deflag</source>
-        <translation>Markierung entfernen</translation>
+        <translation>Annuler le signalement</translation>
     </message>
     <message>
         <source>Flag</source>
-        <translation>Markieren</translation>
+        <translation>Signaler</translation>
     </message>
     <message>
         <source>set Session</source>
-        <translation>setze Session</translation>
+        <translation>créer session</translation>
     </message>
     <message>
         <source>Update modified TS</source>
-        <translation>modifizierten TS updaten</translation>
+        <translation>Actualiser les traductions</translation>
     </message>
     <message>
         <source>Reply Creation</source>
-        <translation>Antworterstellung</translation>
+        <translation>Création de réponses</translation>
     </message>
     <message>
         <source>xrowForum overview</source>
-        <translation>xrowForum Übersicht</translation>
+        <translation>Vue d'ensemble xrowForum</translation>
     </message>
     <message>
         <source>xrowForum permissions</source>
-        <translation>xrowForum Berechtigungen</translation>
+        <translation>Permissions xrowForum</translation>
     </message>
     <message>
         <source>xrowForum ranks</source>
-        <translation>xrowForum R#nge</translation>
+        <translation>Rangs xrowForum</translation>
     </message>
     <message>
         <source>xrowForum settings</source>
-        <translation>xrowForum Einstellungen</translation>
+        <translation>Paramètres xrowForum</translation>
     </message>
     <message>
         <source>You do not have permission to edit &lt;%child_name&gt;.</source>
-        <translation>Sie haben keine Berechtigung um dieses Objekt zu editieren  &lt;%child_name&gt;.</translation>
+        <translation>Vous n'avez pas les permissions nécessaires pour éditer &lt;%child_name&gt;.</translation>
     </message>
     <message>
         <source>posts</source>
-        <translation>Posts</translation>
+        <translation>messages</translation>
     </message>
     <message>
         <source>Moderator</source>
-        <translation>Moderator</translation>
+        <translation>Modérateur</translation>
     </message>
     <message>
         <source>mark this forum as read</source>
-        <translation>markiere dieses Forum als gelesen</translation>
+        <translation>marquer ce forum comme lu</translation>
     </message>
     <message>
         <source>unread</source>
-        <translation>ungelesen</translation>
+        <translation>Non lu</translation>
     </message>
     <message>
         <source>by</source>
-        <translation>von</translation>
+        <translation>par</translation>
     </message>
     <message>
         <source>This Topic has been closed while you created a new post, your post has been deleted.</source>
-        <translation>Sorry. Dieses Thema wurde geschlossen während Sie Ihren Post erstellt haben. Ihr Kommentar wurde gelöscht.</translation>
+        <translation>Cette discussion a été fermée pendant que vous éditiez votre message. Ce dernier a été supprimé.</translation>
     </message>
     <message>
         <source>NEW</source>
-        <translation>NEU</translation>
+        <translation>NOUVEAU</translation>
     </message>
     <message>
         <source>Overview</source>
-        <translation>Übersicht</translation>
+        <translation>Vue d'ensemble</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation>allgemeine Einstellungen</translation>
+        <translation>Paramètres généraux</translation>
     </message>
     <message>
         <source>Information</source>
@@ -411,235 +411,235 @@
     </message>
     <message>
         <source>Board Started</source>
-        <translation>Forum Start</translation>
+        <translation>Date de démarrage</translation>
     </message>
     <message>
         <source>Topic Count</source>
-        <translation>Themen Anzahl</translation>
+        <translation>Nombre de discussion(s)</translation>
     </message>
     <message>
         <source>Post Count</source>
-        <translation>Post Anzahl</translation>
+        <translation>Nombre de message(s)</translation>
     </message>
     <message>
         <source>Total Count</source>
-        <translation>Totale Anzahl</translation>
+        <translation>Total</translation>
     </message>
     <message>
         <source>User</source>
-        <translation>Benutzer</translation>
+        <translation>Utilisateur</translation>
     </message>
     <message>
         <source>User Count</source>
-        <translation>Benutzer Anzahl</translation>
+        <translation>Nombre d'utilisateur(s)</translation>
     </message>
     <message>
         <source>Currently Online</source>
-        <translation>Momentan Online</translation>
+        <translation>Connectés</translation>
     </message>
     <message>
         <source>no one online</source>
-        <translation>niemand online</translation>
+        <translation>personne en ligne</translation>
     </message>
     <message>
         <source>Online In Past 24Hours</source>
-        <translation>Online in den letzten 24h</translation>
+        <translation>Connectés dans les dernière 24 heures</translation>
     </message>
     <message>
         <source>Birthdays Today</source>
-        <translation>Heutige Geburtstage</translation>
+        <translation>Anniversaires</translation>
     </message>
     <message>
         <source>nobody</source>
-        <translation>niemand</translation>
+        <translation>personne</translation>
     </message>
     <message>
         <source>Most User Ever Online</source>
-        <translation>Meisten Nutzer jemals Online</translation>
+        <translation>Utilisateur le plus connecté</translation>
     </message>
     <message>
         <source>Statistics</source>
-        <translation>Statistiken</translation>
+        <translation>Statistiques</translation>
     </message>
     <message>
         <source>Topics Per Day</source>
-        <translation>Themen pro Tag</translation>
+        <translation>Discussions par jour</translation>
     </message>
     <message>
         <source>Posts Per Day</source>
-        <translation>Posts pro Tag</translation>
+        <translation>Messages par jour</translation>
     </message>
     <message>
         <source>Registrations Per Day</source>
-        <translation>Registrationen pro Tag</translation>
+        <translation>Inscriptions par jour</translation>
     </message>
     <message>
         <source>latest</source>
-        <translation>neuste</translation>
+        <translation>derniers</translation>
     </message>
     <message>
         <source>registered User</source>
-        <translation>registrierte Benutzer</translation>
+        <translation>utilisateur enregistré</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation>Datum</translation>
+        <translation>Date</translation>
     </message>
     <message>
         <source>hottest</source>
-        <translation>heißeste</translation>
+        <translation>plus fréquentés</translation>
     </message>
     <message>
         <source>Topics (by views)</source>
-        <translation>Themen (nach Aufrufen)</translation>
+        <translation>Discussions (par vues)</translation>
     </message>
     <message>
         <source>views</source>
-        <translation>Aufrufe</translation>
+        <translation>vues</translation>
     </message>
     <message>
         <source>Topics (by replies)</source>
-        <translation>Themen (nach Antworten)</translation>
+        <translation>Discussion (par messages)</translation>
     </message>
     <message>
         <source>replies</source>
-        <translation>Antworten</translation>
+        <translation>réponses</translation>
     </message>
     <message>
         <source>top</source>
-        <translation>top</translation>
+        <translation>haut</translation>
     </message>
     <message>
         <source>activity User (by Comments)</source>
-        <translation>Benutzer Aktivität (nach Kommentaren)</translation>
+        <translation>Activité des utilisateurs (par commentaires)</translation>
     </message>
     <message>
         <source>Amount</source>
-        <translation>Anzahl</translation>
+        <translation>Montant</translation>
     </message>
     <message>
         <source>activity User (by Logins)</source>
-        <translation>Benutzer Aktivität (nach Logins)</translation>
+        <translation>Activité des utilisateurs (par connexions)</translation>
     </message>
     <message>
         <source>Please select a Proper value for your ModeratorGroupObjectID settings</source>
-        <translation>Bitte wähle einen vernünftigen Wert für deine ModeratorGroupObjectID Einstellungen</translation>
+        <translation>Veuillez sélectionner une valeur correcte pour le paramètre ModeratorGroupObjectID</translation>
     </message>
     <message>
         <source>no Forums to moderate selected</source>
-        <translation>keine zu moderierenden Foren gewählt</translation>
+        <translation>Aucun forum à modérer sélectionné</translation>
     </message>
     <message>
         <source>The input was successfully safed.</source>
-        <translation>Die Eingabe wurde erfolgreich gespeichert.</translation>
+        <translation>L'entrée a été correctement enregistrée.</translation>
     </message>
     <message>
         <source>Normal Rank</source>
-        <translation>Normaler Rang</translation>
+        <translation>Rang normal</translation>
     </message>
     <message>
         <source>Special Rank</source>
-        <translation>Spezieller Rang</translation>
+        <translation>Rang spécial</translation>
     </message>
     <message>
         <source>Execute</source>
-        <translation>Ausführen</translation>
+        <translation>Exécuter</translation>
     </message>
     <message>
         <source>Clean</source>
-        <translation>Leeren</translation>
+        <translation>Nettoyer</translation>
     </message>
     <message>
         <source>Setting</source>
-        <translation>Einstellung</translation>
+        <translation>Paramètre</translation>
     </message>
     <message>
         <source>activate</source>
-        <translation>aktivieren</translation>
+        <translation>activer</translation>
     </message>
     <message>
         <source>name</source>
-        <translation>Name</translation>
+        <translation>nom</translation>
     </message>
     <message>
         <source>inactive</source>
-        <translation>inaktiv</translation>
+        <translation>inactif</translation>
     </message>
     <message>
         <source>save</source>
-        <translation>speichern</translation>
+        <translation>enregistrer</translation>
     </message>
 </context>
 <context>
     <name>kernel/classes/datatypes</name>
     <message>
         <source>Aries</source>
-        <translation type="unfinished"></translation>
+        <translation>Bélier</translation>
     </message>
     <message>
         <source>Taurus</source>
-        <translation type="unfinished"></translation>
+        <translation>Taureau</translation>
     </message>
     <message>
         <source>Gemini</source>
-        <translation type="unfinished"></translation>
+        <translation>Gémeaux</translation>
     </message>
     <message>
         <source>Cancer</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancer</translation>
     </message>
     <message>
         <source>Leo</source>
-        <translation type="unfinished"></translation>
+        <translation>Lion</translation>
     </message>
     <message>
         <source>Virgio</source>
-        <translation type="unfinished"></translation>
+        <translation>Vierge</translation>
     </message>
     <message>
         <source>Libra</source>
-        <translation type="unfinished"></translation>
+        <translation>Balance</translation>
     </message>
     <message>
         <source>Scorpio</source>
-        <translation type="unfinished"></translation>
+        <translation>Scorpion</translation>
     </message>
     <message>
         <source>Sagittarius</source>
-        <translation type="unfinished"></translation>
+        <translation>Sagittaire</translation>
     </message>
     <message>
         <source>Capricorn</source>
-        <translation type="unfinished"></translation>
+        <translation>Capricorne</translation>
     </message>
     <message>
         <source>Aquarius</source>
-        <translation type="unfinished"></translation>
+        <translation>Verseau</translation>
     </message>
     <message>
         <source>Pisces</source>
-        <translation type="unfinished"></translation>
+        <translation>Poisson</translation>
     </message>
     <message>
         <source>Birthday</source>
         <comment>Datatype name</comment>
-        <translation type="unfinished"></translation>
+        <translation>Anniversaire</translation>
     </message>
     <message>
         <source>Missing date input.</source>
-        <translation type="unfinished"></translation>
+        <translation>Date manquante.</translation>
     </message>
     <message>
         <source>Please enter a correct date.</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez saisir une date valide.</translation>
     </message>
     <message>
         <source>Content required</source>
-        <translation type="unfinished"></translation>
+        <translation>Contenu requis</translation>
     </message>
 </context>
 </TS>
