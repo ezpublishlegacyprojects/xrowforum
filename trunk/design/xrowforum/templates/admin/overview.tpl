@@ -118,11 +118,11 @@
                     <table class="list">
                         <tr>
                             <td width="200"><label>{'Topics Per Day'|i18n('extension/xrowforum')}:</label></td>
-                            <td>{div(round(mul(div($topic_count,$forum_days_running),10)),10)} (last24h: {$postcount_y})</td>
+                            <td>{div(round(mul(div($topic_count,$forum_days_running),10)),10)} (last24h: {$topiccount_y})</td>
                         </tr>
                         <tr>
                             <td width="200"><label>{'Posts Per Day'|i18n('extension/xrowforum')}:</label></td>
-                            <td>{div(round(mul(div($post_count,$forum_days_running),10)),10)} (last24h: {$topiccount_y})</td>
+                            <td>{div(round(mul(div($post_count,$forum_days_running),10)),10)} (last24h: {$postcount_y})</td>
                         </tr>
                         <tr>
                             <td width="200"><label>{'Registrations Per Day'|i18n('extension/xrowforum')}:</label></td>
