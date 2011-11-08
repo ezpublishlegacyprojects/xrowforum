@@ -347,6 +347,13 @@
                             <input type="hidden" name="ContentObjectID" value="{$reply.object.id}" />
                             <input class="button" type="submit" name="EditButton" value="{'Edit'|i18n('extension/xrowforum')}" />
                             <input type="hidden" name="ContentObjectLanguageCode" value="{$node.object.current_language}" />
+							{if $view_parameters.offset|ne(0)}
+								<input type="hidden" name="RedirectURIAfterPublish" value="{concat($node.url_alias, "/(offset)/", $view_parameters.offset, "#msg", $reply.node_id )}" />
+								<input type="hidden" name="RedirectIfDiscarded" value="{concat($node.url_alias, "/(offset)/", $view_parameters.offset, "#msg", $reply.node_id )}" />
+							{else}
+								<input type="hidden" name="RedirectURIAfterPublish" value="{concat($node.url_alias, "#msg", $reply.node_id )}" />
+								<input type="hidden" name="RedirectIfDiscarded" value="{concat($node.url_alias, "#msg", $reply.node_id )}" />
+							{/if}
                         </form>
                     {/if}
                     {if or(and($reply.object.can_remove, $moderator_here|eq(true)),and($policies.0.moduleName|eq('*'),$policies.0.functionName|eq('*')))}
@@ -432,6 +439,7 @@
                 </td>
             </tr>
         {/foreach}
+		<a id="last_from_page"></a>
         </table>
         {$paginator_and_create}
     </div>

@@ -25,6 +25,20 @@ if( is_numeric( $namedParameters["NodeID"] ) AND $namedParameters["NodeID"] > 2 
 {
 	$node_id = $namedParameters["NodeID"];
     $node = eZContentObjectTreeNode::fetch( $node_id );
+	
+	$children_count = $node->childrenCount();
+	$xrowForumINI = eZINI::instance( 'xrowforum.ini' );
+	$PostsPerPage = $xrowForumINI->variable( 'GeneralSettings', 'PostsPerPage' );
+	if($children_count > $PostsPerPage)
+	{
+		$offset = $PostsPerPage * ( round($children_count / $PostsPerPage));
+		$url = $node->urlAlias() . "/(offset)/" . $offset . "#last_from_page";
+	}
+	else
+	{
+		$url = $node->urlAlias()  . "#last_from_page";
+	}
+	
 	if( $node instanceof eZContentObjectTreeNode )
     {
     	$class_ident =  $node->ClassIdentifier;
@@ -116,16 +130,14 @@ if( $http->hasPostVariable( "PublishButton" ) )
 	    }
 	    else
 	    {
-	    	return $Module->redirectTo( '/content/view/full/' . $node_id );
+	    	return $Module->redirectTo( $url );
 	    }
-	    
-    	
     }
 }
 elseif ( $http->hasPostVariable( "DiscardButton" ) )
 {
 	$lang->setPrioritizedLanguages( $l_prio );
-	return $Module->redirectTo( '/content/view/full/' . $node_id .'/' );
+	return $Module->redirectTo( $url );
 }
 
 
@@ -244,12 +256,9 @@ function createReply ( $classID, $NodeID, $languageCode, $data, $user_id )
                 ));
 
         }
-        
         return $result;
-                
-                
-	
 }
+
 function storeAttribute( $data, $contentObjectAttribute )
     {
         $contentClassAttribute = $contentObjectAttribute->attribute( 'contentclass_attribute' );
@@ -294,87 +303,75 @@ function storeAttribute( $data, $contentObjectAttribute )
                 }
                 else
                 {
-                    
                 	$contentObjectID = $contentObjectAttribute->attribute( 'contentobject_id' );
-        $contentObjectAttributeID = $contentObjectAttribute->attribute( 'id' );
-        $contentObjectAttributeVersion = $contentObjectAttribute->attribute('version');
-        if ( $data )
-        {
-            $data = $data;
+					$contentObjectAttributeID = $contentObjectAttribute->attribute( 'id' );
+					$contentObjectAttributeVersion = $contentObjectAttribute->attribute('version');
+					if ( $data )
+					{
+						$data = $data;
 
-            // Set original input to a global variable
-            $originalInput = 'originalInput_' . $contentObjectAttributeID;
-            $GLOBALS[$originalInput] = $data;
+						// Set original input to a global variable
+						$originalInput = 'originalInput_' . $contentObjectAttributeID;
+						$GLOBALS[$originalInput] = $data;
 
-            // Set input valid true to a global variable
-            $isInputValid = 'isInputValid_' . $contentObjectAttributeID;
-            $GLOBALS[$isInputValid] = true;
+						// Set input valid true to a global variable
+						$isInputValid = 'isInputValid_' . $contentObjectAttributeID;
+						$GLOBALS[$isInputValid] = true;
 
-            //include_once( 'kernel/classes/datatypes/ezxmltext/handlers/input/ezsimplifiedxmlinputparser.php' );
+						//include_once( 'kernel/classes/datatypes/ezxmltext/handlers/input/ezsimplifiedxmlinputparser.php' );
 
-            $text = $data;
+						$text = $data;
 
-            $text = preg_replace('/\r/', '', $text);
-            $text = preg_replace('/\t/', ' ', $text);
+						$text = preg_replace('/\r/', '', $text);
+						$text = preg_replace('/\t/', ' ', $text);
 
-            // first empty paragraph
-            $text = preg_replace('/^\n/', '<p></p>', $text );
+						// first empty paragraph
+						$text = preg_replace('/^\n/', '<p></p>', $text );
 
-            eZDebugSetting::writeDebug( 'kernel-datatype-ezxmltext', $text, 'eZSimplifiedXMLInput::validateInput text' );
+						eZDebugSetting::writeDebug( 'kernel-datatype-ezxmltext', $text, 'eZSimplifiedXMLInput::validateInput text' );
 
-            $parser = new eZSimplifiedXMLInputParser( $contentObjectID, true, eZXMLInputParser::ERROR_ALL, true );
-            $document = $parser->process( $text );
+						$parser = new eZSimplifiedXMLInputParser( $contentObjectID, true, eZXMLInputParser::ERROR_ALL, true );
+						$document = $parser->process( $text );
 
-            if ( !is_object( $document ) )
-            {
-                $GLOBALS[$isInputValid] = false;
-                $errorMessage = implode( ' ', $parser->getMessages() );
-                $contentObjectAttribute->setValidationError( $errorMessage );
-                return eZInputValidator::STATE_INVALID;
-            }
+						if ( !is_object( $document ) )
+						{
+							$GLOBALS[$isInputValid] = false;
+							$errorMessage = implode( ' ', $parser->getMessages() );
+							$contentObjectAttribute->setValidationError( $errorMessage );
+							return eZInputValidator::STATE_INVALID;
+						}
 
-            $classAttribute = $contentObjectAttribute->contentClassAttribute();
-            if ( $classAttribute->attribute( 'is_required' ) == true )
-            {
-                $root = $document->documentElement;
-                if ( !$root->hasChildNodes() )
-                {
-                    $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
-                                                                         'Content required' ) );
-                    return eZInputValidator::STATE_INVALID;
+						$classAttribute = $contentObjectAttribute->contentClassAttribute();
+						if ( $classAttribute->attribute( 'is_required' ) == true )
+						{
+							$root = $document->documentElement;
+							if ( !$root->hasChildNodes() )
+							{
+								$contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+																					 'Content required' ) );
+								return eZInputValidator::STATE_INVALID;
+							}
+						}
+						$contentObjectAttribute->setValidationLog( $parser->getMessages() );
+
+						$xmlString = eZXMLTextType::domString( $document );
+
+						$urlIDArray = $parser->getUrlIDArray();
+
+						if ( count( $urlIDArray ) > 0 )
+						{
+							$this->updateUrlObjectLinks( $contentObjectAttribute, $urlIDArray );
+						}
+
+						$contentObject = $contentObjectAttribute->attribute( 'object' );
+						$contentObject->appendInputRelationList( $parser->getRelatedObjectIDArray(), eZContentObject::RELATION_EMBED );
+						$contentObject->appendInputRelationList( $parser->getLinkedObjectIDArray(), eZContentObject::RELATION_LINK );
+						$contentObjectAttribute->setAttribute( 'data_text', $xmlString );
+					}
                 }
-            }
-            $contentObjectAttribute->setValidationLog( $parser->getMessages() );
-
-            $xmlString = eZXMLTextType::domString( $document );
-
-            $urlIDArray = $parser->getUrlIDArray();
-
-            if ( count( $urlIDArray ) > 0 )
-            {
-                $this->updateUrlObjectLinks( $contentObjectAttribute, $urlIDArray );
-            }
-
-            $contentObject = $contentObjectAttribute->attribute( 'object' );
-            $contentObject->appendInputRelationList( $parser->getRelatedObjectIDArray(), eZContentObject::RELATION_EMBED );
-            $contentObject->appendInputRelationList( $parser->getLinkedObjectIDArray(), eZContentObject::RELATION_LINK );
-
-            $contentObjectAttribute->setAttribute( 'data_text', $xmlString );
-            # return eZInputValidator::STATE_ACCEPTED;
-        }
-        # return eZInputValidator::STATE_ACCEPTED;
-                	
-                	
-                	
-                	
-                	
-                }
-                
-                $contentObjectAttribute->setAttribute( 'data_int', eZXMLTextType::VERSION_TIMESTAMP );
-                
-                $contentObjectAttribute->store();
-                break;
-            	
+				$contentObjectAttribute->setAttribute( 'data_int', eZXMLTextType::VERSION_TIMESTAMP );
+				$contentObjectAttribute->store();
+			break;
             default :
                 $contentObjectAttribute->setContent( $data );
                 $contentObjectAttribute->store();

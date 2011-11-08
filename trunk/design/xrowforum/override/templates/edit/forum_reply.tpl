@@ -323,11 +323,11 @@ function storeCaret(textEl) {
                         <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n('extension/xrowforum')}" />
                         <input class="defaultbutton" type="submit" name="DiscardButton" value="{'Discard'|i18n('extension/xrowforum')}" />
                         <input type="hidden" name="DiscardConfirm" value="0" />
-                        {if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
-                            {def $redirectme=ezhttp('LastAccessesURI', 'session')}
-                            <input type="hidden" name="RedirectURIAfterPublish" value="{$redirectme}" />
-                            <input type="hidden" name="RedirectIfDiscarded" value="{$redirectme}" />
-                        {/if}
+                        {if ezhttp_hasvariable( 'RedirectURIAfterPublish', 'session' )}
+							{def $redirectme=ezhttp('RedirectURIAfterPublish', 'session')}
+							<input type="hidden" name="RedirectURIAfterPublish" value="{$redirectme}" />
+							<input type="hidden" name="RedirectIfDiscarded" value="{$redirectme}" />
+						{/if}
                     </div>
                 </form>
             </div>

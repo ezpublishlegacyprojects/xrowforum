@@ -217,7 +217,7 @@ function storeCaret(textEl) {
         <div class="edit">
             <div class="class-forum-reply">
                 <form enctype="multipart/form-data" method="post" action={concat('/xrowforum/create/', $NodeID, '/', $LanguageCode)|ezurl}>
-                    <h1>{"Edit Forum reply"|i18n("extension/xrowforum",,array($class.name|wash,$object.name|wash))}</h1>
+                    <h1>{"Forum reply"|i18n("extension/xrowforum",,array($class.name|wash,$object.name|wash))}</h1>
                     
                     <input type="hidden" name="MainNodeID" value="{$main_node_id}" />
                     <label>Subject</label>
@@ -350,11 +350,6 @@ function storeCaret(textEl) {
                         <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n('extension/xrowforum')}" />
                         <input class="defaultbutton" type="submit" name="DiscardButton" value="{'Discard'|i18n('extension/xrowforum')}" />
                         <input type="hidden" name="DiscardConfirm" value="0" />
-                        {if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
-                            {def $redirectme=ezhttp('LastAccessesURI', 'session')}
-                            <input type="hidden" name="RedirectURIAfterPublish" value="{$redirectme}" />
-                            <input type="hidden" name="RedirectIfDiscarded" value="{$redirectme}" />
-                        {/if}
                     </div>
                 </form>
             </div>
