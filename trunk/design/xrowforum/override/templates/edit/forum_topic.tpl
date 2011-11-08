@@ -345,7 +345,7 @@ function storeCaret(textEl) {
             
             <div class="buttonblock">
                 <input class="defaultbutton" type="submit" name="PublishButton" value="{'Send for publishing'|i18n('extension/xrowforum')}" />
-                <input class="button" type="submit" name="DiscardButton" value="{'Discard'|i18n('extension/xrowforum')}" />
+                <input class="defaultbutton" type="submit" name="DiscardButton" value="{'Discard'|i18n('extension/xrowforum')}" />
                 <input type="hidden" name="DiscardConfirm" value="0" />
                 {if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
                     {def $redirectme=ezhttp('LastAccessesURI', 'session')}
