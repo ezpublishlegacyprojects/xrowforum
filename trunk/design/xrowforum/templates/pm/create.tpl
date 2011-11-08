@@ -344,10 +344,8 @@ $(document).ready(function(){
 					<input class="defaultbutton" type="submit" name="PublishButton" value="{'Send'|i18n('extension/xrowpm')}" />
 					<input class="defaultbutton" type="submit" name="DiscardButton" value="{'Discard'|i18n('extension/xrowpm')}" />
 					<input type="hidden" name="DiscardConfirm" value="0" />
-					{if ezhttp_hasvariable( 'LastAccessesURI', 'session' )}
-						{def $redirectme=ezhttp('LastAccessesURI', 'session')}
-						<input type="hidden" name="RedirectURIAfterPublish" value="{$redirectme}" />
-					{/if}
+					<input type="hidden" name="RedirectURIAfterPublish" value={"/pm/outbox"|ezurl()} />
+					<input type="hidden" name="RedirectIfDiscarded" value={"/pm/inbox"|ezurl()} />
 				</div>
 				
 			 </form>

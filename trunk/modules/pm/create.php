@@ -51,7 +51,15 @@ if (!$http->hasPostVariable( 'recipient_name' ) AND $namedParameters['RecipientI
 	{
 		$reply_id = $namedParameters['ReplyID'];
 		$reply_msg = $db->arrayQuery("SELECT * FROM xrowforum_pm_messages where msg_id = $reply_id");
-		$tpl->setVariable( 'subject', 're: ' . $reply_msg[0]['pm_subject'] );
+		if(strrpos( $reply_msg[0]['pm_subject'] , "re:") !== false)
+		{
+			$subject_text = $reply_msg[0]['pm_subject'];
+		}
+		else
+		{
+			$subject_text = 're: ' . $reply_msg[0]['pm_subject'];
+		}
+		$tpl->setVariable( 'subject', $subject_text );
 		$tpl->setVariable( 'content', $reply_msg[0]['pm_content']);
 	}
 	$object = eZContentObject::fetch( $namedParameters['RecipientID'] );
