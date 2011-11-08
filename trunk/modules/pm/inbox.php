@@ -53,8 +53,9 @@ else
 	$total_msg = $db->arrayQuery("SELECT count(*) as 'count' FROM xrowforum_pm_messages where owner_id = $current_user_id AND recipient = $current_user_id");
 }
 //notification check - preselect
-$user_note_state = $db->arrayQuery("SELECT * FROM ezpreferences where name = 'pm_email_notification' AND user_id = $current_user_id;");
-if ($user_note_state[0]['value'] == 'true')
+$user_note_state = $db->arrayQuery("SELECT * FROM ezpreferences where name = 'pm_email_notification_disabled' AND user_id = $current_user_id;");
+
+if (count($user_note_state) == 0)
 {
 	$pref = 1;
 }
@@ -69,17 +70,19 @@ if( $http->hasPostVariable( "switch_pref" ))
 {
 	if ($pref == 1)
 	{
-		eZPreferences::setValue("pm_email_notification", "false", $current_user->ContentObjectID);
+		eZPreferences::setValue("pm_email_notification_disabled", "true", $current_user->ContentObjectID);
 	}
 	else
 	{
-		eZPreferences::setValue("pm_email_notification", "true", $current_user->ContentObjectID);
+		$db->begin();
+		$db->query( "DELETE FROM ezpreferences WHERE user_id = $current_user->ContentObjectID and name = 'pm_email_notification_disabled' and value = 'true'" );
+		$db->commit();
 	}
 }
 
 //notification check - preselect
-$user_note_state = $db->arrayQuery("SELECT * FROM ezpreferences where name = 'pm_email_notification' AND user_id = $current_user_id;");
-if ($user_note_state[0]['value'] == 'true')
+$user_note_state = $db->arrayQuery("SELECT * FROM ezpreferences where name = 'pm_email_notification_disabled' AND user_id = $current_user_id;");
+if (count($user_note_state) == 0)
 {
 	$pref = 1;
 }
@@ -87,6 +90,7 @@ else
 {
 	$pref = 0;
 }
+
 $tpl->setVariable( 'pref', $pref );
 
 

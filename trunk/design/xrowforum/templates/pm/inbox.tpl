@@ -56,9 +56,9 @@
 	    	{if $mails_allowed|eq("true")}
 				<div class="block">
 					<form id="switch_pref" name="switch_pref" action="" method="post">
-						<label>{'Send E-Mail notification'|i18n('extension/xrowpm')}</label>
+						<label>{"Don't send notification"|i18n("extension/xrowpm")}</label>
 						<input class="inline" name="switch_pref" type="hidden" size="30" value="{$pref}" />
-						<input type="checkbox" value="{$pref}" {if $pref|eq(1)}checked="checked"{/if} onchange="check_change();"/>
+						<input type="checkbox" value="{$pref}" {if $pref|eq(0)}checked="checked"{/if} onchange="check_change();"/>
 					</form>
 				</div>
 			{/if}

@@ -155,44 +155,40 @@ else
 						if($notification_setting == "true")
 						{
 							#why does this not work!?
-							#$user_pref = eZPreferences::value('pm_email_notification', false);	
-							$user_pref = $db->arrayQuery( "SELECT value FROM ezpreferences WHERE user_id = $recipient_obj_id AND name = 'pm_email_notification'" );
-							if (count($user_pref) >= 1)
+							$user_pref = $db->arrayQuery( "SELECT value FROM ezpreferences WHERE user_id = $recipient_obj_id AND name = 'pm_email_notification_disabled'" );
+							if (count($user_pref) == 0)
 							{
-								if($user_pref[0]['value'] == "true")
+								$currentuserObject = eZContentObject::fetch( $user->ContentObjectID );
+								$userDataMap = $userObject->DataMap();
+								
+								$firstName = $userDataMap['first_name']->Content();
+								$ezuser = $userDataMap['user_account']->Content();
+								$receiver_mail = $ezuser->attribute( 'email' );							
+								$hostname = eZSys::hostname();
+								
+								$tpl->setVariable( 'sender', $currentuserObject->attribute('name'));
+								$tpl->setVariable( 'pm_subject', $pm_subject );
+								$tpl->setVariable( 'hostname', $hostname );
+								$tpl->setVariable( 'recipient_name', $userObject->Name );
+								$tpl->setVariable( 'messageID', $msg_id );
+							
+								$ini = eZINI::instance();
+								$emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
+								if ( !$emailSender )
 								{
-									$currentuserObject = eZContentObject::fetch( $user->ContentObjectID );
-									$userDataMap = $userObject->DataMap();
-									
-									$firstName = $userDataMap['first_name']->Content();
-									$ezuser = $userDataMap['user_account']->Content();
-									$receiver_mail = $ezuser->attribute( 'email' );							
-									$hostname = eZSys::hostname();
-									
-									$tpl->setVariable( 'sender', $currentuserObject->attribute('name'));
-									$tpl->setVariable( 'pm_subject', $pm_subject );
-									$tpl->setVariable( 'hostname', $hostname );
-									$tpl->setVariable( 'recipient_name', $userObject->Name );
-									$tpl->setVariable( 'messageID', $msg_id );
-								
-									$ini = eZINI::instance();
-									$emailSender = $ini->variable( 'MailSettings', 'EmailSender' );
-									if ( !$emailSender )
-									{
-										$emailSender = $ini->variable( 'MailSettings', 'AdminEmail' );
-									}
-								
-									$templateResult = $tpl->fetch( 'design:pm/mail/message_notification.tpl' );
-								
-									$subject = $tpl->variable( 'subject' );
-								
-									$mail = new eZMail();
-									$mail->setSender( $emailSender );
-									$mail->setReceiver( $receiver_mail );
-									$mail->setSubject( $subject );
-									$mail->setBody( $templateResult );
-									$mailResult = eZMailTransport::send( $mail );
+									$emailSender = $ini->variable( 'MailSettings', 'AdminEmail' );
 								}
+							
+								$templateResult = $tpl->fetch( 'design:pm/mail/message_notification.tpl' );
+							
+								$subject = $tpl->variable( 'subject' );
+							
+								$mail = new eZMail();
+								$mail->setSender( $emailSender );
+								$mail->setReceiver( $receiver_mail );
+								$mail->setSubject( $subject );
+								$mail->setBody( $templateResult );
+								$mailResult = eZMailTransport::send( $mail );
 							}
 						}
 					}
