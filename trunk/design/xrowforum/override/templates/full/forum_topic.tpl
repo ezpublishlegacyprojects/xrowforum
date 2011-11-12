@@ -210,6 +210,8 @@
                             <input class="button forum-account-edit" type="submit" name="EditButton" value="{'Edit'|i18n('extension/xrowforum')}" />
                             <input type="hidden" name="ContentObjectLanguageCode" value="{$node.object.current_language}" />
                             <input type="hidden" name="ContentNodeID" value="{$node.node_id}" />
+							<input type="hidden" name="RedirectURIAfterPublish" value={$node.url_alias|ezurl()} />
+							<input type="hidden" name="RedirectIfDiscarded" value={$node.url_alias|ezurl()} />
                         </form>
                     {/if}
                     {if or(and($node.object.can_remove, $moderator_here|eq(true)),and($policies.0.moduleName|eq('*'),$policies.0.functionName|eq('*')))}
