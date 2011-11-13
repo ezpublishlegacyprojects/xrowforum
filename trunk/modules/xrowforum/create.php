@@ -26,7 +26,8 @@ if( is_numeric( $namedParameters["NodeID"] ) AND $namedParameters["NodeID"] > 2 
 	$node_id = $namedParameters["NodeID"];
     $node = eZContentObjectTreeNode::fetch( $node_id );
 	
-	$children_count = $node->childrenCount();
+	#+1 for the topic
+	$children_count = $node->childrenCount() + 1;
 	$xrowForumINI = eZINI::instance( 'xrowforum.ini' );
 	$PostsPerPage = $xrowForumINI->variable( 'GeneralSettings', 'PostsPerPage' );
 	if($children_count > $PostsPerPage)
