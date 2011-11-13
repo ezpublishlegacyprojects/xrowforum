@@ -31,7 +31,7 @@ if( is_numeric( $namedParameters["NodeID"] ) AND $namedParameters["NodeID"] > 2 
 	$PostsPerPage = $xrowForumINI->variable( 'GeneralSettings', 'PostsPerPage' );
 	if($children_count > $PostsPerPage)
 	{
-		$offset = $PostsPerPage * ( round($children_count / $PostsPerPage));
+		$offset = $PostsPerPage * ( floor($children_count / $PostsPerPage));
 		$url = $node->urlAlias() . "/(offset)/" . $offset . "#last_from_page";
 	}
 	else
