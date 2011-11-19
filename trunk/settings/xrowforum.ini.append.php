@@ -77,9 +77,8 @@ SelectableUserPathString[]
 SelectableUserPathString[]=/1/5/12
 
 [Censoring]
-#CensoringList[badword]=goodword
 CensoringList[]
-CensoringList[fuck]=f**k
-CensoringList[shit]=s**t
+CensoringList[]=fuck
+CensoringList[]=shit
 
 */ ?>

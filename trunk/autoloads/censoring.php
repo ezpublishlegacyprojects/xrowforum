@@ -27,13 +27,15 @@ class Censoring
     function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
     {
 		$xrowForumINI = eZINI::instance( 'xrowforum.ini' );
-		$censoringlist = $xrowForumINI->group( 'Censoring', 'CensoringList' );
-		$temp_val = $operatorValue;
-		foreach ( $censoringlist["CensoringList"] as $key => $censorword )
+		$censoringlist = $xrowForumINI->variable( 'Censoring', 'CensoringList' );
+		$regexPattern = array();
+		foreach( $censoringlist as $badWord ) 
 		{
-			$temp_val  = str_replace($key, $censorword, $temp_val);
+		  $chars = str_split( $badWord );
+		  $regexPattern[] = '/\b(' . $badWord . ')\b/i';
+		  $regexReplace[] = $chars[0] . "**" . $chars[ count($chars) -1 ];
 		}
-		$operatorValue = $temp_val;
+		$operatorValue = preg_replace( $regexPattern, $regexReplace, $operatorValue );		
     }
 }
 
