@@ -200,7 +200,6 @@ function storeCaret(textEl) {
 {def $node=fetch( 'content', 'node', hash( 'node_id', $NodeID ) )}
 
 <div class="edit">
-    <div class="class-forum-topic">
 
         {if $ErrorMSG}
             <div class="warning">
@@ -354,7 +353,6 @@ function storeCaret(textEl) {
                 </form>
             </div>
         </div>
-    </div>
 </div>
 
 <div id="topic_history">
