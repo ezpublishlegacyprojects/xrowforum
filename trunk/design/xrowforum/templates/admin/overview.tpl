@@ -85,8 +85,7 @@
                                 {if $online_past_24|count()|gt(0)}
                                     {foreach $online_past_24 as $children}
                                         {set $url_var=fetch( 'content', 'object', hash( 'object_id', $children.user_id ))}
-                                        <a href={$url_var.main_node.url_alias|ezurl}>{$url_var.name|wash()}</a>
-                                        {delimiter}, {/delimiter}
+                                        <a href={$url_var.main_node.url_alias|ezurl}>{$url_var.name|wash()}</a>{delimiter}, {/delimiter}
                                     {/foreach}
                                 {else}
                                     {'no one online'|i18n('extension/xrowforum')}
