@@ -1,14 +1,12 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class updateAfterPublishType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = 'updateafterpublish';
     
     function updateAfterPublishType()
     {
-        $this->eZWorkflowEventType( updateAfterPublishType::WORKFLOW_TYPE_STRING, ezi18n( 'extension/xrowforum', 'Update modified TS' ) );
+        $this->eZWorkflowEventType( updateAfterPublishType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'extension/xrowforum', 'Update modified TS' ) );
         $this->setTriggerTypes( array( 'content' => array( 'publish' => array ( 'after' ) ) ) );
     }
     

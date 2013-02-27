@@ -2,7 +2,6 @@
 
 include_once ( 'kernel/common/template.php' );
 include_once( 'lib/ezdb/classes/ezdb.php' );
-require_once( 'kernel/common/i18n.php' );
 
 #constants:
 #state 0 = pending friend
@@ -12,7 +11,7 @@ require_once( 'kernel/common/i18n.php' );
 $Module = & $Params['Module'];
 $http = eZHTTPTool::instance();
 $namedParameters = $Module->NamedParameters;
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $db = eZDB::instance();
 $current_user = eZUser::currentUser();
 $user_id = $current_user->ContentObjectID;
@@ -403,8 +402,8 @@ $tpl->setVariable( 'block_list', $block_list );
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/network.tpl' );
 $Result['path'] = array( array( 'url' => "/",
-                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'Home' ) ),
 						 array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'My Network' ) ) );
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'My Network' ) ) );
     
 ?>

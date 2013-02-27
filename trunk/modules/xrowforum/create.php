@@ -1,7 +1,6 @@
 <?php
 
 include_once ( 'kernel/common/template.php' );
-require_once( 'kernel/common/i18n.php' );
 
 $Module = & $Params['Module'];
 $http = eZHTTPTool::instance();
@@ -9,7 +8,7 @@ $user = eZUser::currentUser();
 $user_id = $user->attribute("contentobject_id");
 $node_id = 2;
 $namedParameters = $Module->NamedParameters;
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $error = array();
 $errorstatus = false;
 if( $namedParameters["LanguageCode"] )
@@ -144,7 +143,7 @@ elseif ( $http->hasPostVariable( "DiscardButton" ) )
 
 $tpl->setVariable( 'parentID', $node_id );
 $Result['content'] = $tpl->fetch( "design:reply/create.tpl" );
-$Result['path'] = array(  array( 'url' => false ,  'text' => ezi18n( 'extension/xrowforum', 'Reply Creation' )));
+$Result['path'] = array(  array( 'url' => false ,  'text' => ezpI18n::tr( 'extension/xrowforum', 'Reply Creation' )));
 
 function createReply ( $classID, $NodeID, $languageCode, $data, $user_id )
 {
@@ -348,7 +347,7 @@ function storeAttribute( $data, $contentObjectAttribute )
 							$root = $document->documentElement;
 							if ( !$root->hasChildNodes() )
 							{
-								$contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+								$contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
 																					 'Content required' ) );
 								return eZInputValidator::STATE_INVALID;
 							}

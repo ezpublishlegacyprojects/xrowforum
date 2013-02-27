@@ -1,14 +1,12 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class setSessionBeforePublishType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = 'setsessionbeforepublish';
     
     function setSessionBeforePublishType()
     {
-        $this->eZWorkflowEventType( setSessionBeforePublishType::WORKFLOW_TYPE_STRING, ezi18n( 'extension/xrowforum', 'set Session' ) );
+        $this->eZWorkflowEventType( setSessionBeforePublishType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'extension/xrowforum', 'set Session' ) );
         $this->setTriggerTypes( array( 'content' => array( 'publish' => array ( 'before' ) ) ) );
     }
     

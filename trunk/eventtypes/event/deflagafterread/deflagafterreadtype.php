@@ -1,14 +1,12 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class deflagAfterReadType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = 'deflagafterread';
 	
     function deflagAfterReadType()
 	{
-		$this->eZWorkflowEventType( deflagAfterReadType::WORKFLOW_TYPE_STRING, ezi18n( 'extension/xrowforum', 'Deflag' ) );
+		$this->eZWorkflowEventType( deflagAfterReadType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'extension/xrowforum', 'Deflag' ) );
         $this->setTriggerTypes( array( 'content' => array( 'read' => array ( 'before' ) ) ) );
 	}
 	

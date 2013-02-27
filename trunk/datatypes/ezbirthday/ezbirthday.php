@@ -1,7 +1,5 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class eZBirthday
 {
     function eZBirthday( $birthday = array() )
@@ -104,18 +102,18 @@ class eZBirthday
                    array( "22" =>  "10" )
                    );
 
-        $name = array(  1 =>  ezi18n( 'kernel/classes/datatypes', 'Aries' ),
-                        2 =>  ezi18n( 'kernel/classes/datatypes', 'Taurus' ),
-                        3 =>  ezi18n( 'kernel/classes/datatypes', 'Gemini' ),
-                        4 =>  ezi18n( 'kernel/classes/datatypes', 'Cancer' ),
-                        5 =>  ezi18n( 'kernel/classes/datatypes', 'Leo' ),
-                        6 =>  ezi18n( 'kernel/classes/datatypes', 'Virgio' ),
-                        7 =>  ezi18n( 'kernel/classes/datatypes', 'Libra' ),
-                        8 =>  ezi18n( 'kernel/classes/datatypes', 'Scorpio' ),
-                        9 =>  ezi18n( 'kernel/classes/datatypes', 'Sagittarius' ),
-                        10 => ezi18n( 'kernel/classes/datatypes', 'Capricorn' ),
-                        11 => ezi18n( 'kernel/classes/datatypes', 'Aquarius' ),
-                        12 => ezi18n( 'kernel/classes/datatypes', 'Pisces' ),
+        $name = array(  1 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Aries' ),
+                        2 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Taurus' ),
+                        3 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Gemini' ),
+                        4 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Cancer' ),
+                        5 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Leo' ),
+                        6 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Virgio' ),
+                        7 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Libra' ),
+                        8 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Scorpio' ),
+                        9 =>  ezpI18n::tr( 'kernel/classes/datatypes', 'Sagittarius' ),
+                        10 => ezpI18n::tr( 'kernel/classes/datatypes', 'Capricorn' ),
+                        11 => ezpI18n::tr( 'kernel/classes/datatypes', 'Aquarius' ),
+                        12 => ezpI18n::tr( 'kernel/classes/datatypes', 'Pisces' ),
                     );
 
         list( $sign_start, $sign_name ) = each( $signs[(int)$month-1] );

@@ -1,14 +1,12 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class flagAfterPublishType extends eZWorkflowEventType
 {
     const WORKFLOW_TYPE_STRING = 'flagafterpublish';
     
     function flagAfterPublishType()
     {
-        $this->eZWorkflowEventType( flagAfterPublishType::WORKFLOW_TYPE_STRING, ezi18n( 'extension/xrowforum', 'Flag' ) );
+        $this->eZWorkflowEventType( flagAfterPublishType::WORKFLOW_TYPE_STRING, ezpI18n::tr( 'extension/xrowforum', 'Flag' ) );
         $this->setTriggerTypes( array( 'content' => array( 'publish' => array ( 'after' ) ) ) );
     }
     

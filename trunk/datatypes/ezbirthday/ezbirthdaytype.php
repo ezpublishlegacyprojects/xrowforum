@@ -1,7 +1,5 @@
 <?php
 
-require_once( 'kernel/common/i18n.php' );
-
 class eZBirthdayType extends eZDataType
 {
     const DATA_TYPE_STRING = 'ezbirthday';
@@ -11,7 +9,7 @@ class eZBirthdayType extends eZDataType
 
     function eZBirthdayType()
     {
-        $this->eZDataType( self::DATA_TYPE_STRING, ezi18n( 'kernel/classes/datatypes', "Birthday", 'Datatype name' ),
+        $this->eZDataType( self::DATA_TYPE_STRING, ezpI18n::tr( 'kernel/classes/datatypes', "Birthday", 'Datatype name' ),
                            array( 'serialize_supported' => true ) );
 
     }
@@ -50,7 +48,7 @@ class eZBirthdayType extends eZDataType
         if ( $classAttribute->attribute( "is_required" ) and
              $year == '' or $month == '' or $day == '' )
         {
-            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+            $contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
                                                                  'Missing date input.' ) );
             return eZInputValidator::STATE_INVALID;
         }
@@ -62,7 +60,7 @@ class eZBirthdayType extends eZDataType
         }
         else
         {
-            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+            $contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
                                                                  'Please enter a correct date.' ) );
             return eZInputValidator::STATE_INVALID;
         }
@@ -95,7 +93,7 @@ class eZBirthdayType extends eZDataType
         if ( $classAttribute->attribute( "is_required" ) and
              $year == '' or $month == '' or $day == '' )
         {
-            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+            $contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
                                                                  'Missing date input.' ) );
             return eZInputValidator::STATE_INVALID;
         }
@@ -108,7 +106,7 @@ class eZBirthdayType extends eZDataType
         }
         else
         {
-            $contentObjectAttribute->setValidationError( ezi18n( 'kernel/classes/datatypes',
+            $contentObjectAttribute->setValidationError( ezpI18n::tr( 'kernel/classes/datatypes',
                                                                  'Please enter a correct date.' ) );
             return eZInputValidator::STATE_INVALID;
         }

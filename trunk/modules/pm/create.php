@@ -2,10 +2,9 @@
 
 include_once ( 'kernel/common/template.php' );
 include_once( 'lib/ezdb/classes/ezdb.php' );
-require_once( 'kernel/common/i18n.php' );
 
 $db = eZDB::instance();
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $Module = $Params['Module'];
 $http = eZHTTPTool::instance();
 $user = eZUser::currentUser();
@@ -234,9 +233,9 @@ else
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/create.tpl' );
 $Result['path'] = array( array( 'url' => "/",
-                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'Home' ) ),
 							array( 
 								'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'New message' ) ) );
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'New message' ) ) );
 								
 ?>

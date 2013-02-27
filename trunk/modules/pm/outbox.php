@@ -2,13 +2,12 @@
 
 include_once ( 'kernel/common/template.php' );
 include_once( 'lib/ezdb/classes/ezdb.php' );
-require_once( 'kernel/common/i18n.php' );
 
 $Module = & $Params['Module'];
 $http = eZHTTPTool::instance();
 $namedParameters = $Module->NamedParameters;
 $view_parameters = $Params['UserParameters'];
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 
 if($Params['UserParameters']['offset'])
 {
@@ -82,8 +81,8 @@ $tpl->setVariable( 'view_parameters', $view_parameters );
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/outbox.tpl' );
 $Result['path'] = array( array( 'url' => "/",
-                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'Home' ) ),
 						 array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'Outbox' ) ) );
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'Outbox' ) ) );
     
 ?>

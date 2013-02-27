@@ -2,10 +2,9 @@
 
 include_once ( 'kernel/common/template.php' );
 include_once( 'lib/ezdb/classes/ezdb.php' );
-require_once( 'kernel/common/i18n.php' );
 
 $db = eZDB::instance();
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $Module = $Params['Module'];
 $http = eZHTTPTool::instance();
 $user = eZUser::currentUser();
@@ -36,10 +35,10 @@ else
 $Result = array();
 $Result['content'] = $tpl->fetch( 'design:pm/view_pm.tpl' );
 $Result['path'] = array( array( 'url' => "/",
-                                'text' => ezi18n( 'extension/dropcalc', 'Home' ) ),
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'Home' ) ),
 						 array( 'url' => "/pm/" . $path_url,
-                                'text' => ezi18n( 'extension/dropcalc', $path_text ) ),
+                                'text' => ezpI18n::tr( 'extension/xrowpm', $path_text ) ),
 						 array( 'url' => false,
-                                'text' => ezi18n( 'extension/xrowpm', 'view message' ) ) );
+                                'text' => ezpI18n::tr( 'extension/xrowpm', 'view message' ) ) );
     
 ?>
