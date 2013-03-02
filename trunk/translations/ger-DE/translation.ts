@@ -1,5 +1,12 @@
 <!DOCTYPE TS><TS>
 <context>
+	<name>kernel/navigationpart</name>
+    <message>
+        <source>xrowForum</source>
+        <translation>xrowForum</translation>
+    </message>
+</context>
+<context>
     <name>design/ezwebin/content/edit_attribute</name>
     <message>
         <source>Not translatable</source>
