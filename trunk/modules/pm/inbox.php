@@ -7,7 +7,7 @@ $Module = & $Params['Module'];
 $http = eZHTTPTool::instance();
 $namedParameters = $Module->NamedParameters;
 $view_parameters = $Params['UserParameters'];
-$tpl = eZTemplate::factory()
+$tpl = eZTemplate::factory();
 
 if($Params['UserParameters']['offset'])
 {
