@@ -10,26 +10,26 @@
     <name>design/ezwebin/content/edit_attribute</name>
     <message>
         <source>Not translatable</source>
-        <translation type="unfinished"></translation>
+        <translation>Nicht übersetzbar</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished">benötigt</translation>
+        <translation>erforderlich</translation>
     </message>
     <message>
         <source>Information collector</source>
-        <translation type="unfinished">Informationsammler</translation>
+        <translation>Informationsammler</translation>
     </message>
 </context>
 <context>
     <name>design/ezwebin/user/register</name>
     <message>
         <source>Register user</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzer anmelden</translation>
     </message>
     <message>
         <source>Input did not validate</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabe nicht validiert</translation>
     </message>
     <message>
         <source>Input was stored successfully</source>
@@ -71,27 +71,27 @@
     <name>design/standard/content/datatype</name>
     <message>
         <source>Year</source>
-        <translation type="unfinished"></translation>
+        <translation>Jahr</translation>
     </message>
     <message>
         <source>Please enter the year</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte ein Jahr eingeben</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"></translation>
+        <translation>Monat</translation>
     </message>
     <message>
         <source>Please enter the month</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte einen Monat eingeben</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"></translation>
+        <translation>Tag</translation>
     </message>
     <message>
         <source>Please enter the day</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte einen Tag eingeben</translation>
     </message>
 </context>
 <context>
